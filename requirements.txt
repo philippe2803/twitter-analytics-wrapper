@@ -1,0 +1,5 @@
+EasyProcess==0.2.3
+python-dateutil==2.6.0
+PyVirtualDisplay==0.2.1
+selenium==3.3.3
+six==1.10.0

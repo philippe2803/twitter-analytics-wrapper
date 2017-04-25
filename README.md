@@ -15,10 +15,10 @@ Selenium uses a few binaries (Chromedriver, xvfb) that needs to be installed bef
 
 ```commandline
 $ sudo apt-get install chromium-chromedriver xvfb
-
 ```
 
 Then you can install the library with pip
+
 
 ```commandline
 $ pip install twitter-analytics
@@ -26,8 +26,20 @@ $ pip install twitter-analytics
 ```
 
 
+A simple download for the last 28 days is done as follow:
 
-####TODO:
 
-* Add a command line interface to be able to launch for any twitter account on the fly.
-* Add a monitoring tool to track when script breaks (it will, this is selenium).
+```python
+from twitter_analytics import ReportDownloader
+
+
+reports = ReportDownloader(
+    username='<twitter username>',
+    password='<twitter password>',
+)
+
+reports.run()
+
+```
+
+If you encounter issues, submit it on this repo.

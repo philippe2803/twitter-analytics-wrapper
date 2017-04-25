@@ -1,0 +1,6 @@
+This script downloads the tweets report from the analytics section of a twitter account (including impressions).
+You can specify dates for period longer than the last 28 days default period from the Twitter analytics interface.
+
+The twitter analytics platform has a limit of 91 days. For period longer than 91 days, it splits the downloading of reports in multiple downloads.
+
+This was created so we can get impressions data for every tweets as there is no API endpoints specifically for those metrics (as of today).

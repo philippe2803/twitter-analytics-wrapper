@@ -7,3 +7,4 @@
 # tests ignored as too ugly for now
 /tests
 config.py
+documentation

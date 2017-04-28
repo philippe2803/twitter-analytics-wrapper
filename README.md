@@ -26,8 +26,7 @@ $ pip install twitter-analytics
 ```
 
 
-A simple download for the last 28 days is done as follow:
-
+A simple download for the last 28 days (default period) is done as follow:
 
 ```python
 from twitter_analytics import ReportDownloader
@@ -38,8 +37,33 @@ reports = ReportDownloader(
     password='<twitter password>',
 )
 
-reports.run()
+report_filepath = reports.run()
+```
+
+For specific date range and/or period over 90 days, you can launch the report download as follow:
+
+```python
+from twitter_analytics import ReportDownloader
+import csv
+
+
+reports = ReportDownloader(
+    username='<twitter username>',
+    password='<twitter password>',
+    from_date='03/28/2014',         # must be in string format 'mm/dd/yyyy' and nothing before October 2013 (twitter restriction).
+    to_date='12/31/2016'
+)
+
+reports_filepath = reports.run()            # list of filepaths of downloaded csv reports
+
+# Then you can parse the csv simply as follow
+tweets = list()
+for report in reports_filepath:
+    with open(report, 'r') as csvfile:
+        r = csv.DictReader(csvfile)
+        rows = [row for row in r]
+        tweets += rows
 
 ```
 
-If you encounter issues, submit it on this repo.
+If you encounter issues, submit it on this repo. I also accept pull requests.

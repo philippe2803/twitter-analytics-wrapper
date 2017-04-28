@@ -22,8 +22,12 @@ class ReportDownloader(object):
         :param username: Twitter username
         :param password: Twitter password
         :param proxy: Proxy in the following string form => IP:PORT or HOST:PORT ("xx.xx.xx.xx:xxxx")
-        :param date_from (optional): date from for specific date range report (default is None => last 28 days)
-        :param date_to (optional): date to for specific date range report (default is None => last 28 days)
+        :param date_from (optional): date from for specific date range report (default is None => last 28 days). Must be
+        in the following string format 'mm/dd/yyyy'
+
+        :param date_to (optional): date to for specific date range report (default is None => last 28 days). Must be
+        in the following string format 'mm/dd/yyyy'.
+
         :param download_folder (optional): where the downloaded report must be downloaded to. Default is working
         directory.
         :param show_browser: Show browser if True (for debugging). Default is False.
@@ -92,7 +96,8 @@ class ReportDownloader(object):
 
         random_time_sleep()     # to be sure report is fully downloaded
         self.quit()
-        reports_downloaded = [self.download_folder + report for report in os.listdir(self.download_folder)]
+        reports_downloaded = [self.download_folder + report for report in os.listdir(self.download_folder)
+                              if '.csv' in report]
         return reports_downloaded
 
     def login(self):
@@ -299,7 +304,8 @@ class DatePicker(object):
 
     def pick_month(self, months_delta):
         """
-        Method which will clicks the right button (previous or next) to reach the calendar month targeted.
+        Method which will clicks the right button (previous or next) to reach the calenda
+r month targeted.
         :param months_delta: Number of month between the default month displayed in calendar and the targeted month.
         """
         if months_delta > 0:

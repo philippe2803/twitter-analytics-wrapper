@@ -5,7 +5,7 @@ from pyvirtualdisplay import Display
 import os
 
 
-def test_calendar_date_picking():
+def NOtest_calendar_date_picking():
     # Creating driver and virtual display
     display = Display(visible=0, size=(1200, 1000))
     display.start()

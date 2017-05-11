@@ -3,8 +3,7 @@
 /twitter_analytics.egg-info
 /.idea
 *.pyc
-
-# tests ignored as too ugly for now
-/tests
 config.py
 documentation
+*cache
+scratch.py

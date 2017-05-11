@@ -1,0 +1,13 @@
+language: python
+python:
+  - "2.7"
+  - "3.2"
+  - "3.3"
+  - "3.4"
+  - "3.5"
+
+before_install:
+  - sudo apt-get -qq update
+  - sudo apt-get -y install chromium-chromedriver xvfb
+install: "pip install -r requirements.txt"
+script: py.test

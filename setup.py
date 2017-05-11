@@ -22,10 +22,10 @@ setup(
         'pyvirtualdisplay'
     ],
     classifiers=[
-        'Development Status :: 0.1 - Beta',
+        'Development Status :: 3 - Alpha',
         'Environment :: Web Environment',
         'Intended Audience :: Developers',
-        'Operating System :: Linux/Debian',
+        'Operating System :: POSIX :: Linux',
         'Programming Language :: Python',
         'Programming Language :: Python :: 2',
         'Programming Language :: Python :: 2.7',

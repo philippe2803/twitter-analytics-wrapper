@@ -8,7 +8,7 @@ def read(fname):
 
 setup(
     name="twitter-analytics",
-    version="0.0.7",
+    version="0.1",
     author="Philippe Oger",
     author_email="phil.oger@gmail.com",
     description=("A twitter analytics reports downloader. The only way to get tweet impressions data with Python"),
@@ -20,5 +20,20 @@ setup(
         'selenium',
         'python-dateutil',
         'pyvirtualdisplay'
+    ],
+    classifiers=[
+        'Development Status :: 0.1 - Beta',
+        'Environment :: Web Environment',
+        'Intended Audience :: Developers',
+        'Operating System :: Linux/Debian',
+        'Programming Language :: Python',
+        'Programming Language :: Python :: 2',
+        'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: 3',
+        'Programming Language :: Python :: 3.3',
+        'Programming Language :: Python :: 3.4',
+        'Programming Language :: Python :: 3.5',
+        'Programming Language :: Python :: 3.6',
+        'Topic :: Software Development :: Libraries :: Python Modules'
     ]
 )

@@ -186,7 +186,7 @@ class ReportDownloader(object):
         from_date = datetime.strptime(from_date, '%m/%d/%Y')
         to_date = datetime.strptime(to_date, '%m/%d/%Y')
         delta = to_date - from_date
-        number_of_batch = ceil(delta.days / 90)
+        number_of_batch = ceil(float(delta.days) / 90)
 
         batches = list()
         start_date = from_date

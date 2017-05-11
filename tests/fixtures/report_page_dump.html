@@ -1,0 +1,421 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=1200, height=700">
+    <meta name="language" content="en">
+    <meta name="msapplication-TileImage" content="https://abs.twimg.com/favicons/win8-tile-144.png">
+    <meta name="msapplication-TileColor" content="#00aced">
+    <link href="https://abs.twimg.com/favicons/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <title>Tweet Activity analytics for twitter_downloader</title>
+    <link rel="stylesheet" href="https://ton.twitter.com/layoutsvc/shared_navbar_style-6ebce78c8e22e25a7710.css">
+    <link href="https://ton.twimg.com/insights/css/app.bundle.a6b3fd8eb2cc83791b67.css" rel="stylesheet">
+
+  <style type="text/css"></style></head>
+  <body locale="en" data-scribe-account-id="4503599664910367" data-scribe-viewer-id="25056534" data-scribe-promotable-user-id="25056534" data-scribe-support-mode="None" data-scribing-enabled="true" data-error-scribing-enabled="true" data-scribe-session-id="862598032176668672" data-scribe-app-id="insights" class="ShortNavBarMode" data-environment="prod" data-ads-layout-service="true" data-page="tweets" data-account="twitter_downloader" data-auth-user="twitter_downloader" data-metric="Clicks" data-start-time="1492128000000" data-end-time="1494547199999">
+    <div id="SharedNavBarContainer" class="LayoutServiceContainer  navbar-fixed-top">
+        <div class="SharedNavBar  SharedNavBar--analytics ">
+  <div class="SharedNavBar-contents">
+    <a class="SharedNavBar-brand" href="/">
+      <span class="Icon Icon--logo Icon--large"></span>
+      <span class="platform">
+        Analytics
+
+
+      </span>
+    </a>
+
+      <ul class="SharedNavBar-navGroup">
+            <li class="SharedNavBar-navItem ">
+              <a href="/user/twitter_downloader/home?lang=en">Home</a>
+            </li>
+            <li class="SharedNavBar-navItem is-active">
+              <a href="/user/twitter_downloader/tweets?lang=en">Tweets</a>
+            </li>
+            <li class="SharedNavBar-navItem ">
+              <a href="/accounts/18ce54gzn6n/audience_insights?audience_types=followers%2C&amp;audience_ids=%2A%2C">Audiences</a>
+            </li>
+            <li class="SharedNavBar-navItem ">
+              <a href="/accounts/18ce54gzn6n/events?lang=en">Events</a>
+            </li>
+            <li class="SharedNavBar-navItem dropdown apex-navbar-dropdown">
+              <a>More <span class="Icon Icon--caretDown"></span></a>
+              <ul class="Dropdown" role="menu">
+                  <li class="Dropdown-menuItem">
+                    <a class="Dropdown-menuItemContent" role="menuitem" href="/user/twitter_downloader/videos?lang=en">Videos (beta)</a>
+                  </li>
+                  <li class="Dropdown-menuItem">
+                    <a class="Dropdown-menuItemContent" role="menuitem" href="/accounts/18ce54gzn6n/tools/manage_apps?lang=en">App manager</a>
+                  </li>
+                  <li class="Dropdown-menuItem">
+                    <a class="Dropdown-menuItemContent" role="menuitem" href="/accounts/18ce54gzn6n/conversion_tracking?lang=en">Conversion tracking</a>
+                  </li>
+              </ul>
+            </li>
+      </ul>
+
+
+        <ul class="SharedNavBar-navGroup SharedNavBar-navGroup--right">
+
+
+              <li class="SharedNavBar-navItem dropdown apex-navbar-dropdown">
+                <a href="http://twitter.com/twitter_downloader">
+                  twitter downloader <span class="Icon Icon--caretDown"></span>
+                </a>
+                <ul class="Dropdown pull-right" role="menu">
+
+                    <li class="Dropdown-menuItem">
+                      <a class="Dropdown-menuItemContent" role="menuitem" href="/account_management/18ce54gzn6n/account_users?lang=en">Edit access to account</a>
+                    </li>
+
+                    <li class="Dropdown-menuItem">
+                      <a class="Dropdown-menuItemContent" role="menuitem" href="https://business.twitter.com/i/settings/">Customer support settings</a>
+                    </li>
+
+                    <li class="Dropdown-menuItem">
+                      <a class="Dropdown-menuItemContent" role="menuitem" href="https://business.twitter.com/help">Help and support</a>
+                    </li>
+                </ul>
+              </li>
+
+          <li class="SharedNavBar-navItem SharedNavBar-navItem--simple dropdown apex-navbar-dropdown">
+            <a class="avatar-container" href="http://twitter.com/twitter_downloader">
+              <div class="avatar-img">
+                <img class="avatar" src="https://pbs.twimg.com/profile_images/801056207175876608/uCvwJq-0_reasonably_small.jpg" title="@twitter_downloader">
+              </div>
+              <div class="avatar-dropdown">
+                <span class="Icon Icon--caretDown"></span>
+              </div>
+            </a>
+            <ul class="Dropdown pull-right" role="menu">
+              <li class="Dropdown-menuItem">
+                <a class="Dropdown-menuItemContent" role="menuitem" href="https://twitter.com/twitter_downloader">View my profile</a>
+              </li>
+              <li class="Dropdown-divider"></li>
+              <li class="Dropdown-menuItem">
+                <a class="Dropdown-menuItemContent" role="menuitem" href="https://twitter.com/logout">Sign out</a>
+              </li>
+            </ul>
+          </li>
+
+
+              <li class="SharedNavBar-navItem">
+              <a class="SharedNavBar-signupForAdsButton Button Button--small Button--primary" href="https://ads.twitter.com/login?ref=gl-an-br-anly&amp;redirect_to_payments=true">Sign up for Twitter Ads</a>
+              </li>
+        </ul>
+  </div>
+</div>
+
+    </div>
+<div class="main-page-header">
+<div class="container">
+<h1 class="pull-left">Tweet activity</h1>
+    <div class="pull-right tweet-activity-export">
+      <div id="export" data-timespan="" data-export="true">
+    <button type="button" class="btn btn-default ladda-button" data-spinner-color="#8899a6" data-style="expand-right">
+      <span class="Icon Icon--featherDownload"></span>
+      <span class="ladda-label">
+        Export data
+      </span>
+    <span class="ladda-spinner"></span></button>
+  <div class="hidden error server Callout Callout--danger">
+    <p>There was a problem exporting your data, try again later.</p>
+  </div>
+</div>
+
+    </div>
+    <div class="pull-right">
+      <div class="btn daterange-button">
+  <span class="Icon Icon--featherCalendar"></span>
+  <span class="daterange-selected">Last 28 Days</span>
+  <span class="Icon Icon--caretDown controls-caret"></span>
+</div>
+
+    </div>
+</div>
+</div>
+<div class="container">
+<div class="full-page">
+    <div class="row">
+        <div class="col-md-12">
+            <div id="notifications">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div id="tweet-impression-header" class="tweet-activity-summary"><h3 class="headline">
+  Your Tweets earned <strong class="headline-highlight">54 impressions</strong> over this <strong class="headline-highlight">28 day</strong> period
+</h3>
+</div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-9">
+            <div class="tweet-impression-chart-wrap">
+                <div id="tweet-impression-chart" class="tweet-impression-chart" data-tweets="true">
+
+    <div class="hidden no-next-page">
+      <img src="https://ton.twimg.com/insights/img/twitter-bird-gray.bc59f030b6befee2196f0091c247b2a8.png">
+    </div>
+
+                  <div class="barchart-tooltip hidden"></div>
+                <svg class="barchart-svg" width="848" height="244" style="width: 848px; height: 244px;"><g class="barchart-highlights"></g><g class="barchart-charts"><g class="barchart-chart" transform="translate(0,0)"><g class="barchart-axis y axis"><g class="tick major" transform="translate(0,180)" style="opacity: 1;"><line x2="848" class="baseline" y2="0" dy="1"></line><text x="848" dy="14" class="hidden barchart-axistext y" y="0" style="text-anchor: start;">0</text></g><g class="tick major" transform="translate(0,90)" style="opacity: 1;"><line x2="848" y2="0" dy="1"></line><text x="848" dy="14" class="barchart-axistext y" y="0" style="text-anchor: start;">10</text></g><g class="tick major" transform="translate(0,0)" style="opacity: 1;"><line x2="848" y2="0" dy="1"></line><text x="848" dy="14" class="barchart-axistext y" y="0" style="text-anchor: start;">20</text></g><path class="domain" d="M848,0H0V180H848"></path></g><g data-index="0" class="barchart-bar" transform="translate(10.5,0)"><rect class="barchart-fill-empty" width="24.5" y="179" height="1"></rect><rect class="barchart-fill organic" width="24.5" y="180" height="0"></rect></g><g data-index="1" class="barchart-bar" transform="translate(39.5,0)"><rect class="barchart-fill-empty" width="24.5" y="179" height="1"></rect><rect class="barchart-fill organic" width="24.5" y="171" height="9"></rect></g><g data-index="2" class="barchart-bar" transform="translate(68.5,0)"><rect class="barchart-fill-empty" width="24.5" y="179" height="1"></rect><rect class="barchart-fill organic" width="24.5" y="171" height="9"></rect></g><g data-index="3" class="barchart-bar" transform="translate(97.5,0)"><rect class="barchart-fill-empty" width="24.5" y="179" height="1"></rect><rect class="barchart-fill organic" width="24.5" y="171" height="9"></rect></g><g data-index="4" class="barchart-bar" transform="translate(126.5,0)"><rect class="barchart-fill-empty" width="24.5" y="179" height="1"></rect><rect class="barchart-fill organic" width="24.5" y="144" height="36"></rect></g><g data-index="5" class="barchart-bar" transform="translate(155.5,0)"><rect class="barchart-fill-empty" width="24.5" y="179" height="1"></rect><rect class="barchart-fill organic" width="24.5" y="180" height="0"></rect></g><g data-index="6" class="barchart-bar" transform="translate(184.5,0)"><rect class="barchart-fill-empty" width="24.5" y="179" height="1"></rect><rect class="barchart-fill organic" width="24.5" y="180" height="0"></rect></g><g data-index="7" class="barchart-bar" transform="translate(213.5,0)"><rect class="barchart-fill-empty" width="24.5" y="179" height="1"></rect><rect class="barchart-fill organic" width="24.5" y="171" height="9"></rect></g><g data-index="8" class="barchart-bar" transform="translate(242.5,0)"><rect class="barchart-fill-empty" width="24.5" y="179" height="1"></rect><rect class="barchart-fill organic" width="24.5" y="180" height="0"></rect></g><g data-index="9" class="barchart-bar" transform="translate(271.5,0)"><rect class="barchart-fill-empty" width="24.5" y="179" height="1"></rect><rect class="barchart-fill organic" width="24.5" y="162" height="18"></rect></g><g data-index="10" class="barchart-bar" transform="translate(300.5,0)"><rect class="barchart-fill-empty" width="24.5" y="179" height="1"></rect><rect class="barchart-fill organic" width="24.5" y="162" height="18"></rect></g><g data-index="11" class="barchart-bar" transform="translate(329.5,0)"><rect class="barchart-fill-empty" width="24.5" y="179" height="1"></rect><rect class="barchart-fill organic" width="24.5" y="162" height="18"></rect></g><g data-index="12" class="barchart-bar" transform="translate(358.5,0)"><rect class="barchart-fill-empty" width="24.5" y="179" height="1"></rect><rect class="barchart-fill organic" width="24.5" y="171" height="9"></rect></g><g data-index="13" class="barchart-bar" transform="translate(387.5,0)"><rect class="barchart-fill-empty" width="24.5" y="179" height="1"></rect><rect class="barchart-fill organic" width="24.5" y="180" height="0"></rect></g><g data-index="14" class="barchart-bar" transform="translate(416.5,0)"><rect class="barchart-fill-empty" width="24.5" y="179" height="1"></rect><rect class="barchart-fill organic" width="24.5" y="180" height="0"></rect></g><g data-index="15" class="barchart-bar" transform="translate(445.5,0)"><rect class="barchart-fill-empty" width="24.5" y="179" height="1"></rect><rect class="barchart-fill organic" width="24.5" y="180" height="0"></rect></g><g data-index="16" class="barchart-bar" transform="translate(474.5,0)"><rect class="barchart-fill-empty" width="24.5" y="179" height="1"></rect><rect class="barchart-fill organic" width="24.5" y="171" height="9"></rect></g><g data-index="17" class="barchart-bar" transform="translate(503.5,0)"><rect class="barchart-fill-empty" width="24.5" y="179" height="1"></rect><rect class="barchart-fill organic" width="24.5" y="171" height="9"></rect></g><g data-index="18" class="barchart-bar" transform="translate(532.5,0)"><rect class="barchart-fill-empty" width="24.5" y="179" height="1"></rect><rect class="barchart-fill organic" width="24.5" y="126" height="54"></rect></g><g data-index="19" class="barchart-bar" transform="translate(561.5,0)"><rect class="barchart-fill-empty" width="24.5" y="179" height="1"></rect><rect class="barchart-fill organic" width="24.5" y="171" height="9"></rect></g><g data-index="20" class="barchart-bar" transform="translate(590.5,0)"><rect class="barchart-fill-empty" width="24.5" y="179" height="1"></rect><rect class="barchart-fill organic" width="24.5" y="126" height="54"></rect></g><g data-index="21" class="barchart-bar" transform="translate(619.5,0)"><rect class="barchart-fill-empty" width="24.5" y="179" height="1"></rect><rect class="barchart-fill organic" width="24.5" y="180" height="0"></rect></g><g data-index="22" class="barchart-bar" transform="translate(648.5,0)"><rect class="barchart-fill-empty" width="24.5" y="179" height="1"></rect><rect class="barchart-fill organic" width="24.5" y="135" height="45"></rect></g><g data-index="23" class="barchart-bar" transform="translate(677.5,0)"><rect class="barchart-fill-empty" width="24.5" y="179" height="1"></rect><rect class="barchart-fill organic" width="24.5" y="53.999999999999986" height="126.00000000000001"></rect></g><g data-index="24" class="barchart-bar" transform="translate(706.5,0)"><rect class="barchart-fill-empty" width="24.5" y="179" height="1"></rect><rect class="barchart-fill organic" width="24.5" y="162" height="18"></rect></g><g data-index="25" class="barchart-bar" transform="translate(735.5,0)"><rect class="barchart-fill-empty" width="24.5" y="179" height="1"></rect><rect class="barchart-fill organic" width="24.5" y="171" height="9"></rect></g><g data-index="26" class="barchart-bar" transform="translate(764.5,0)"><rect class="barchart-fill-empty" width="24.5" y="179" height="1"></rect><rect class="barchart-fill organic" width="24.5" y="171" height="9"></rect></g><g data-index="27" class="barchart-bar" transform="translate(793.5,0)"><rect class="barchart-fill-empty" width="24.5" y="179" height="1"></rect><rect class="barchart-fill organic" width="24.5" y="153" height="27"></rect></g></g><g class="barchart-chart" transform="translate(0,185)"><g class="barchart-axis y axis"><g class="tick major" transform="translate(0,40)" style="opacity: 1;"><line x2="848" class="baseline" y2="0" dy="1"></line><text x="848" dy="14" class="hidden barchart-axistext y" y="0" style="text-anchor: start;">0</text></g><g class="tick major" transform="translate(0,20)" style="opacity: 1;"><line x2="848" y2="0" dy="1"></line><text x="848" dy="14" class="barchart-axistext y" y="0" style="text-anchor: start;">1</text></g><g class="tick major" transform="translate(0,0)" style="opacity: 1;"><line x2="848" y2="0" dy="1"></line><text x="848" dy="14" class="barchart-axistext y" y="0" style="text-anchor: start;">1</text></g><path class="domain" d="M848,0H0V40H848"></path></g><g data-index="0" class="barchart-bar" transform="translate(10.5,0)"><rect class="barchart-fill-empty" width="24.5" y="39" height="1"></rect><rect class="barchart-fill tweets" width="24.5" y="40" height="0"></rect></g><g data-index="1" class="barchart-bar" transform="translate(39.5,0)"><rect class="barchart-fill-empty" width="24.5" y="39" height="1"></rect><rect class="barchart-fill tweets" width="24.5" y="40" height="0"></rect></g><g data-index="2" class="barchart-bar" transform="translate(68.5,0)"><rect class="barchart-fill-empty" width="24.5" y="39" height="1"></rect><rect class="barchart-fill tweets" width="24.5" y="40" height="0"></rect></g><g data-index="3" class="barchart-bar" transform="translate(97.5,0)"><rect class="barchart-fill-empty" width="24.5" y="39" height="1"></rect><rect class="barchart-fill tweets" width="24.5" y="40" height="0"></rect></g><g data-index="4" class="barchart-bar" transform="translate(126.5,0)"><rect class="barchart-fill-empty" width="24.5" y="39" height="1"></rect><rect class="barchart-fill tweets" width="24.5" y="40" height="0"></rect></g><g data-index="5" class="barchart-bar" transform="translate(155.5,0)"><rect class="barchart-fill-empty" width="24.5" y="39" height="1"></rect><rect class="barchart-fill tweets" width="24.5" y="40" height="0"></rect></g><g data-index="6" class="barchart-bar" transform="translate(184.5,0)"><rect class="barchart-fill-empty" width="24.5" y="39" height="1"></rect><rect class="barchart-fill tweets" width="24.5" y="40" height="0"></rect></g><g data-index="7" class="barchart-bar" transform="translate(213.5,0)"><rect class="barchart-fill-empty" width="24.5" y="39" height="1"></rect><rect class="barchart-fill tweets" width="24.5" y="40" height="0"></rect></g><g data-index="8" class="barchart-bar" transform="translate(242.5,0)"><rect class="barchart-fill-empty" width="24.5" y="39" height="1"></rect><rect class="barchart-fill tweets" width="24.5" y="40" height="0"></rect></g><g data-index="9" class="barchart-bar" transform="translate(271.5,0)"><rect class="barchart-fill-empty" width="24.5" y="39" height="1"></rect><rect class="barchart-fill tweets" width="24.5" y="40" height="0"></rect></g><g data-index="10" class="barchart-bar" transform="translate(300.5,0)"><rect class="barchart-fill-empty" width="24.5" y="39" height="1"></rect><rect class="barchart-fill tweets" width="24.5" y="40" height="0"></rect></g><g data-index="11" class="barchart-bar" transform="translate(329.5,0)"><rect class="barchart-fill-empty" width="24.5" y="39" height="1"></rect><rect class="barchart-fill tweets" width="24.5" y="40" height="0"></rect></g><g data-index="12" class="barchart-bar" transform="translate(358.5,0)"><rect class="barchart-fill-empty" width="24.5" y="39" height="1"></rect><rect class="barchart-fill tweets" width="24.5" y="40" height="0"></rect></g><g data-index="13" class="barchart-bar" transform="translate(387.5,0)"><rect class="barchart-fill-empty" width="24.5" y="39" height="1"></rect><rect class="barchart-fill tweets" width="24.5" y="40" height="0"></rect></g><g data-index="14" class="barchart-bar" transform="translate(416.5,0)"><rect class="barchart-fill-empty" width="24.5" y="39" height="1"></rect><rect class="barchart-fill tweets" width="24.5" y="40" height="0"></rect></g><g data-index="15" class="barchart-bar" transform="translate(445.5,0)"><rect class="barchart-fill-empty" width="24.5" y="39" height="1"></rect><rect class="barchart-fill tweets" width="24.5" y="40" height="0"></rect></g><g data-index="16" class="barchart-bar" transform="translate(474.5,0)"><rect class="barchart-fill-empty" width="24.5" y="39" height="1"></rect><rect class="barchart-fill tweets" width="24.5" y="40" height="0"></rect></g><g data-index="17" class="barchart-bar" transform="translate(503.5,0)"><rect class="barchart-fill-empty" width="24.5" y="39" height="1"></rect><rect class="barchart-fill tweets" width="24.5" y="40" height="0"></rect></g><g data-index="18" class="barchart-bar" transform="translate(532.5,0)"><rect class="barchart-fill-empty" width="24.5" y="39" height="1"></rect><rect class="barchart-fill tweets" width="24.5" y="40" height="0"></rect></g><g data-index="19" class="barchart-bar" transform="translate(561.5,0)"><rect class="barchart-fill-empty" width="24.5" y="39" height="1"></rect><rect class="barchart-fill tweets" width="24.5" y="40" height="0"></rect></g><g data-index="20" class="barchart-bar" transform="translate(590.5,0)"><rect class="barchart-fill-empty" width="24.5" y="39" height="1"></rect><rect class="barchart-fill tweets" width="24.5" y="40" height="0"></rect></g><g data-index="21" class="barchart-bar" transform="translate(619.5,0)"><rect class="barchart-fill-empty" width="24.5" y="39" height="1"></rect><rect class="barchart-fill tweets" width="24.5" y="40" height="0"></rect></g><g data-index="22" class="barchart-bar" transform="translate(648.5,0)"><rect class="barchart-fill-empty" width="24.5" y="39" height="1"></rect><rect class="barchart-fill tweets" width="24.5" y="0" height="40"></rect></g><g data-index="23" class="barchart-bar" transform="translate(677.5,0)"><rect class="barchart-fill-empty" width="24.5" y="39" height="1"></rect><rect class="barchart-fill tweets" width="24.5" y="40" height="0"></rect></g><g data-index="24" class="barchart-bar" transform="translate(706.5,0)"><rect class="barchart-fill-empty" width="24.5" y="39" height="1"></rect><rect class="barchart-fill tweets" width="24.5" y="40" height="0"></rect></g><g data-index="25" class="barchart-bar" transform="translate(735.5,0)"><rect class="barchart-fill-empty" width="24.5" y="39" height="1"></rect><rect class="barchart-fill tweets" width="24.5" y="40" height="0"></rect></g><g data-index="26" class="barchart-bar" transform="translate(764.5,0)"><rect class="barchart-fill-empty" width="24.5" y="39" height="1"></rect><rect class="barchart-fill tweets" width="24.5" y="40" height="0"></rect></g><g data-index="27" class="barchart-bar" transform="translate(793.5,0)"><rect class="barchart-fill-empty" width="24.5" y="39" height="1"></rect><rect class="barchart-fill tweets" width="24.5" y="40" height="0"></rect></g></g><g class="focus hidden" id="focus-0"><circle r="4.5"></circle></g><g class="focus hidden" id="focus-1"><circle r="4.5"></circle></g></g><rect class="barchart-eventlayer" width="848" height="244"></rect><g class="barchart-axis x axis"><g class="tick major" transform="translate(66,0)" style="opacity: 1;"><line y2="244" x2="0"></line><text y="230" x="0" dy="0.8em" class="barchart-axistext x" dx="4" style="text-anchor: middle;">Apr 16</text></g><g class="tick major" transform="translate(269,0)" style="opacity: 1;"><line y2="244" x2="0"></line><text y="230" x="0" dy="0.8em" class="barchart-axistext x" dx="4" style="text-anchor: middle;">Apr 23</text></g><g class="tick major" transform="translate(472,0)" style="opacity: 1;"><line y2="244" x2="0"></line><text y="230" x="0" dy="0.8em" class="barchart-axistext x" dx="4" style="text-anchor: middle;">Apr 30</text></g><g class="tick major" transform="translate(675,0)" style="opacity: 1;"><line y2="244" x2="0"></line><text y="230" x="0" dy="0.8em" class="barchart-axistext x" dx="4" style="text-anchor: middle;">May 7</text></g><path class="domain" d="M8,244V0H791V244"></path></g></svg></div>
+            </div>
+        </div>
+        <div class="col-md-3 tweet-activity-right-content">
+            <div id="tweet-impression-sidebar" class="tweet-activity-summary"><div class="analysis-label">Your Tweets</div>
+<div class="analysis-body">
+  During this 28 day period, you earned <strong class="analysis-body-highlight">2 impressions</strong> per day.
+</div>
+</div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-9 tweet-activity-left-content">
+            <div id="tweet-activity-container">
+              <ul class="topn-table table-condensed table-hover">
+  <li class="tweet-activity-table-header">
+    <div class="value col-md-7 tweet-activity-header-item" data-active-filter="">
+      <ul class="nav nav-pills">
+        <li class="active"><a class="filter" data-type="no_replies">Tweets</a></li>
+        <li><a class="filter" data-type="top" data-single-page="">Top Tweets</a></li>
+        <li><a class="filter" data-type="all">Tweets and replies</a></li>
+        <li><a class="filter" data-type="promoted">Promoted</a></li>
+      </ul>
+    </div>
+    <div class="text-right metric-label col-md-1 tweet-activity-header-item"><span class="has-help-text" data-help-text="Number of times users saw the Tweet on Twitter">Impressions</span></div>
+    <div class="text-right metric-label col-md-2 tweet-activity-header-item"><span class="has-help-text" data-help-text="Total number of times a user has interacted with a Tweet. This includes all clicks anywhere on the Tweet (including hashtags, links, avatar, username, and Tweet expansion), retweets, replies, follows, and likes.">Engagements</span></div>
+    <div class="text-right metric-label col-md-2 tweet-activity-header-item"><span class="has-help-text" data-help-text="The number of engagements (clicks, retweets, replies, follows and likes) divided by the total number of impressions.">Engagement rate</span></div>
+  </li>
+<li class="topn-page tweet-activity-tweet-group" data-tweet-id="860870383309922304">
+  <ul>
+    <div class="tweet-container">
+      <li class="tweet-stats">
+        <div class="value col-md-7 tweet-activity-col1">
+          <div class="topn-row">
+              <div class="tweet-container">
+  <a href="https://twitter.com/twitter_downloader" target="_blank">
+    <img class="tweet-avatar" src="https://pbs.twimg.com/profile_images/801056207175876608/uCvwJq-0_reasonably_small.jpg">
+  </a>
+</div>
+
+          </div>
+        </div>
+          <div class="tweet-activity-data impressions text-right col-md-1">13</div>
+          <div class="tweet-activity-data metric text-right col-md-2">2</div>
+          <div class="tweet-activity-data metric text-right col-md-2">15.4%</div>
+            <div class="tweet-sheet-link">View Tweet activity</div>
+      </li>
+    </div>
+  </ul>
+</li>
+</ul>
+
+<div class="tweet-activity-table-error" style="display: none;">
+  <div class="notification-bar">
+    <div class="message clearfix message-info" style="">
+      <article>There was a problem loading your Tweets. Please reload the page to try again.</article>
+    </div>
+  </div>
+</div>
+<div class="tweet-activity-table-end-of-tweets" style="display: block;">
+  <div class="notification-bar">
+    <div class="message clearfix message-info" style="">
+      <article>You've reached the end of Tweets for the selected date range. Change date selection to view more.</article>
+    </div>
+  </div>
+</div>
+    <div class="spinner hidden" style="display: none;">
+      <img src="https://ton.twimg.com/insights/img/spinner-rosetta-blue.26880d0cb44db4f986579af075bcf140.gif">
+    </div>
+    <div class="no-next-page">
+      <img src="https://ton.twimg.com/insights/img/twitter-bird-gray.bc59f030b6befee2196f0091c247b2a8.png">
+    </div>
+
+<div class="tweet-activity-table-empty" style="display: none;">
+  <div class="tweet-activity-table-empty-promoted">
+Get your Tweets in front of more people.
+    <a href="https://ads.twitter.com/login?ref=gl-an-br-anly&amp;redirect_to_payments=true">Sign up for Twitter Ads</a>  </div>
+  <div class="tweet-activity-table-empty-tweets">
+Use Tweet Activity to track how your Tweets are doing.
+    <a href="https://business.twitter.com/en/help/campaign-measurement-and-analytics/tweet-activity-dashboard.html?utm_source=twitterads&amp;utm_medium=ads&amp;utm_campaign=twitterads">Learn more.</a>  </div>
+</div>
+
+            </div>
+        </div>
+        <div class="col-md-3 tweet-activity-right-content">
+            <div class="tweet-activity-sidebar">
+  <h5>Engagements</h5>
+  <div id="engagement-sidebar" class="tweet-activity-sidebar-description">Showing 28 days with daily frequency
+</div>
+</div>
+
+<div class="tweet-activity-panel metric-time-series engagements" id="engagements-time-series-container" style="display: block;">
+  <div class="panel-body">
+  <div class="time-series-hero">
+    <div class="time-series-label">Engagement rate</div>
+    <div class="time-series-value">0.5%</div>
+    <div class="default-tooltip"><div class="metric-tooltip">
+  <div class="metric-tooltip-body">
+    <div class="metric-tooltip-date">May 11</div>
+    <div class="metric-tooltip-point-label"></div>
+    <div class="metric-tooltip-value">0.0% engagement rate</div>
+  </div>
+  <div class="metric-tooltip-tick">
+  </div>
+</div>
+</div>
+  </div>
+  <div class="time-series-graph"><svg><g class="nvd3 nv-wrap nv-lineChart" transform="translate(5,10)"><g><rect width="247" height="52" style="opacity: 0;"></rect><g class="nv-x nv-axis"></g><g class="nv-y nv-axis"></g><g class="nv-linesWrap"><g class="nvd3 nv-wrap nv-line" transform="translate(0,0)"><defs><clipPath id="nv-edge-clip-75701"><rect width="247" height="52"></rect></clipPath></defs><g clip-path=""><g class="nv-groups"><g class="nv-group nv-series-0" style="stroke-opacity: 1; fill-opacity: 0.5; fill: rgb(31, 119, 180); stroke: rgb(31, 119, 180);"><path class="nv-line" d="M0,52L9.148148148148147,52L18.296296296296294,52L27.444444444444443,52L36.59259259259259,52L45.74074074074074,52L54.888888888888886,52L64.03703703703704,52L73.18518518518518,52L82.33333333333333,52L91.48148148148148,52L100.62962962962962,52L109.77777777777777,52L118.92592592592592,52L128.07407407407408,52L137.22222222222223,52L146.37037037037035,52L155.5185185185185,52L164.66666666666666,52L173.8148148148148,52L182.96296296296296,52L192.1111111111111,52L201.25925925925924,52L210.40740740740742,0L219.55555555555554,52L228.70370370370367,52L237.85185185185185,52L247,52"></path></g><g class="nv-group nv-series-1" style="stroke-opacity: 1; fill-opacity: 0.5; fill: rgb(174, 199, 232); stroke: rgb(174, 199, 232);"><path class="nv-line" d="M0,50.142857142857146L247,50.142857142857146"></path></g></g><g class="nv-scatterWrap" clip-path=""><g class="nvd3 nv-wrap nv-scatter nv-chart-75701" transform="translate(0,0)"><defs><clipPath id="nv-edge-clip-75701"><rect width="247" height="52"></rect></clipPath><clipPath class="nv-point-clips" id="nv-points-clip-75701"><circle r="25" cx="5.6310136476469694e-8" cy="52.00000000255462"></circle><circle r="25" cx="9.148148231758093" cy="52.000000066551024"></circle><circle r="25" cx="18.29629631582921" cy="52.00000008834797"></circle><circle r="25" cx="27.444444528780654" cy="52.00000008457071"></circle><circle r="25" cx="36.592592624981705" cy="52.000000094837084"></circle><circle r="25" cx="45.7407408274815" cy="52.00000008525797"></circle><circle r="25" cx="54.88888891761693" cy="52.00000004499904"></circle><circle r="25" cx="64.03703705808887" cy="52.00000009435704"></circle><circle r="25" cx="73.18518519044785" cy="52.000000073281306"></circle><circle r="25" cx="82.33333334480102" cy="52.000000047439215"></circle><circle r="25" cx="91.48148157292188" cy="52.00000001392119"></circle><circle r="25" cx="100.62962968259755" cy="52.00000000316496"></circle><circle r="25" cx="109.77777777902293" cy="52.00000006850396"></circle><circle r="25" cx="118.9259259345234" cy="52.000000010348536"></circle><circle r="25" cx="128.07407411476714" cy="52.0000000406695"></circle><circle r="25" cx="137.22222226713765" cy="52.00000002330149"></circle><circle r="25" cx="146.37037041648753" cy="52.00000005171925"></circle><circle r="25" cx="155.51851853566077" cy="52.00000003732743"></circle><circle r="25" cx="164.66666671668102" cy="52.00000006288797"></circle><circle r="25" cx="173.8148148711965" cy="52.00000008231195"></circle><circle r="25" cx="182.96296298726466" cy="52.00000005153445"></circle><circle r="25" cx="192.1111111432331" cy="52.00000000420638"></circle><circle r="25" cx="201.2592592981626" cy="52.00000004362272"></circle><circle r="25" cx="210.40740747342872" cy="5.364528239331234e-8"></circle><circle r="25" cx="219.55555555967143" cy="52.00000001330252"></circle><circle r="25" cx="228.70370380169567" cy="52.00000002482067"></circle><circle r="25" cx="237.8518518882388" cy="52.00000004704402"></circle><circle r="25" cx="247.00000009624569" cy="52.00000003911363"></circle><circle r="25" cx="1.6793999093479715e-8" cy="50.14285715437553"></circle><circle r="25" cx="247.0000000544835" cy="50.14285714407306"></circle></clipPath></defs><g clip-path=""><g class="nv-groups"><g class="nv-group nv-series-0" style="stroke-opacity: 1; fill-opacity: 0.5; stroke: rgb(31, 119, 180); fill: rgb(31, 119, 180);"><circle cx="0" cy="52" r="2.256758334191025" class="nv-point nv-point-0"></circle><circle cx="9.148148148148147" cy="52" r="2.256758334191025" class="nv-point nv-point-1"></circle><circle cx="18.296296296296294" cy="52" r="2.256758334191025" class="nv-point nv-point-2"></circle><circle cx="27.444444444444443" cy="52" r="2.256758334191025" class="nv-point nv-point-3"></circle><circle cx="36.59259259259259" cy="52" r="2.256758334191025" class="nv-point nv-point-4"></circle><circle cx="45.74074074074074" cy="52" r="2.256758334191025" class="nv-point nv-point-5"></circle><circle cx="54.888888888888886" cy="52" r="2.256758334191025" class="nv-point nv-point-6"></circle><circle cx="64.03703703703704" cy="52" r="2.256758334191025" class="nv-point nv-point-7"></circle><circle cx="73.18518518518518" cy="52" r="2.256758334191025" class="nv-point nv-point-8"></circle><circle cx="82.33333333333333" cy="52" r="2.256758334191025" class="nv-point nv-point-9"></circle><circle cx="91.48148148148148" cy="52" r="2.256758334191025" class="nv-point nv-point-10"></circle><circle cx="100.62962962962962" cy="52" r="2.256758334191025" class="nv-point nv-point-11"></circle><circle cx="109.77777777777777" cy="52" r="2.256758334191025" class="nv-point nv-point-12"></circle><circle cx="118.92592592592592" cy="52" r="2.256758334191025" class="nv-point nv-point-13"></circle><circle cx="128.07407407407408" cy="52" r="2.256758334191025" class="nv-point nv-point-14"></circle><circle cx="137.22222222222223" cy="52" r="2.256758334191025" class="nv-point nv-point-15"></circle><circle cx="146.37037037037035" cy="52" r="2.256758334191025" class="nv-point nv-point-16"></circle><circle cx="155.5185185185185" cy="52" r="2.256758334191025" class="nv-point nv-point-17"></circle><circle cx="164.66666666666666" cy="52" r="2.256758334191025" class="nv-point nv-point-18"></circle><circle cx="173.8148148148148" cy="52" r="2.256758334191025" class="nv-point nv-point-19"></circle><circle cx="182.96296296296296" cy="52" r="2.256758334191025" class="nv-point nv-point-20"></circle><circle cx="192.1111111111111" cy="52" r="2.256758334191025" class="nv-point nv-point-21"></circle><circle cx="201.25925925925924" cy="52" r="2.256758334191025" class="nv-point nv-point-22"></circle><circle cx="210.40740740740742" cy="0" r="2.256758334191025" class="nv-point nv-point-23"></circle><circle cx="219.55555555555554" cy="52" r="2.256758334191025" class="nv-point nv-point-24"></circle><circle cx="228.70370370370367" cy="52" r="2.256758334191025" class="nv-point nv-point-25"></circle><circle cx="237.85185185185185" cy="52" r="2.256758334191025" class="nv-point nv-point-26"></circle><circle cx="247" cy="52" r="2.256758334191025" class="nv-point nv-point-27"></circle></g><g class="nv-group nv-series-1" style="stroke-opacity: 1; fill-opacity: 0.5; stroke: rgb(174, 199, 232); fill: rgb(174, 199, 232);"><circle cx="0" cy="50.142857142857146" r="2.256758334191025" class="nv-point nv-point-0"></circle><circle cx="247" cy="50.142857142857146" r="2.256758334191025" class="nv-point nv-point-1"></circle></g></g><g class="nv-point-paths" clip-path="url(#nv-points-clip-75701)"><path class="nv-path-0" d="M-10.000000000000004,51.07142879124428L-10,61.99999997312224L-9.999999973122243,62L4.574074074078535,62L4.574074150529994,51.07142848113829Z"></path><path class="nv-path-1" d="M4.574074150529993,51.07142848113829L4.574074074078534,62L13.722222249967029,62L13.72222236411238,14.093346950977118L11.391250759152822,17.490522232941856Z"></path><path class="nv-path-2" d="M13.72222236411238,14.093346950977118L13.722222249967029,61.999999999999986L22.87037042643392,62L22.870370399420576,-3.4236623667049466Z"></path><path class="nv-path-3" d="M25.6425970432014,-10L22.870370399420576,-3.4236623667049466L22.87037042643392,62L32.01851856565882,61.999999999999986L32.018518646459775,-9.999999999999972Z"></path><path class="nv-path-4" d="M32.018518646459775,-10.000000000000002L32.018518565658816,62.000000000000014L41.1666667367027,62L41.166666661310835,-10Z"></path><path class="nv-path-5" d="M41.16666666131083,-10L41.166666736702695,61.999999999999986L50.31481491655696,62L50.31481459970124,-10.000000000000028Z"></path><path class="nv-path-6" d="M50.31481459970124,-9.999999999999986L50.31481491655696,62L59.46296293389883,62L59.46296332236828,-10Z"></path><path class="nv-path-7" d="M59.462963322368275,-9.999999999999986L59.46296293389882,62L68.6111111473066,62L68.61111098143118,-10Z"></path><path class="nv-path-8" d="M68.61111098143118,-10L68.6111111473066,62L77.75925929587304,62L77.75925909248433,-10Z"></path><path class="nv-path-9" d="M77.75925909248433,-10L77.75925929587304,62L86.90740749550058,62L86.90740723169877,-10Z"></path><path class="nv-path-10" d="M86.90740723169877,-10L86.90740749550058,62L96.05555563951755,62L96.05555555486127,-10.000000000000057Z"></path><path class="nv-path-11" d="M96.05555555486127,-9.999999999999986L96.05555563951755,62L105.20370365938732,61.99999999999994L105.20370417363435,-10Z"></path><path class="nv-path-12" d="M105.20370417363435,-10.000000000000014L105.2037036593873,62L114.35185192034388,62L114.35185146263481,-10Z"></path><path class="nv-path-13" d="M114.35185146263481,-10L114.35185192034388,62L123.49999999150096,62L123.50000023014044,-10Z"></path><path class="nv-path-14" d="M123.50000023014044,-10L123.49999999150096,62.000000000000014L132.64814820993766,62L132.6481480732437,-10Z"></path><path class="nv-path-15" d="M132.6481480732437,-9.999999999999996L132.64814820993766,62L141.79629631074866,62L141.79629653440907,-10Z"></path><path class="nv-path-16" d="M149.1558062055807,-10L141.79629653440907,-10L141.79629631074866,62L150.94444449180614,62L150.9444443820014,-7.797325207900858Z"></path><path class="nv-path-17" d="M150.9444443820014,-7.797325207900858L150.94444449180614,62L160.09259259823023,61.999999999999886L160.09259276626807,1.8590536537875804Z"></path><path class="nv-path-18" d="M160.09259276626807,1.8590536537875804L160.09259259823023,62L169.24074077270612,61.999999999999886L169.24074088331562,9.906035795168947Z"></path><path class="nv-path-19" d="M169.24074088331562,9.906035795168961L169.24074077270612,62L178.38888896287403,61.999999999999886L178.38888880927036,16.343621370839585Z"></path><path class="nv-path-20" d="M178.38888880927036,16.343621370839585L178.38888896287403,62.00000000000001L187.53703711698407,62L187.53703690575887,21.171810651521852Z"></path><path class="nv-path-21" d="M187.53703690575887,21.171810651521852L187.53703711698407,62.00000000000001L196.68518517761117,62L196.6851853396576,24.390603628028753Z"></path><path class="nv-path-22" d="M196.6851853396576,24.390603628028753L196.68518517761117,62L210.40740744548876,62L210.40740738716391,26.804698255118893Z"></path><path class="nv-path-23" d="M238.70370372723517,-10L149.1558062055807,-10L150.9444443820014,-7.797325207900858L160.0925927662679,1.8590536537875266L169.24074088331562,9.906035795168947L178.38888880927036,16.343621370839585L187.53703690575887,21.171810651521852L196.68518533965752,24.390603628028742L210.40740738716391,26.804698255118893L224.12962971544567,24.390603600717768L233.2777779198574,21.171810706571605L235.09438040494075,20.21304828480225L242.23773515444975,0Z"></path><path class="nv-path-24" d="M210.40740738716391,26.8046982551189L210.40740744548876,62L224.12962966809286,62L224.1296297154457,24.390603600717746Z"></path><path class="nv-path-25" d="M224.1296297154457,24.390603600717746L224.12962966809286,62L233.2777778206746,62L233.2777779198574,21.17181070657159Z"></path><path class="nv-path-26" d="M236.40352331575016,21.405519891290893L235.09438040494078,20.213048284802255L233.2777779198574,21.171810706571605L233.2777778206746,62L242.4259260009111,62.00000000000023L242.42592599143728,51.071428694452045Z"></path><path class="nv-path-27" d="M257,51.07142836672009L242.42592599143728,51.07142869445204L242.4259260009111,62L257,62Z"></path><path class="nv-path-28" d="M-10.000000000000004,41.0714285864443L-9.999999999999998,51.07142879124428L4.574074150529993,51.07142848113829L11.391250759152818,17.490522232941856Z"></path><path class="nv-path-29" d="M257,35.07142855396143L236.40352331575016,21.405519891290893L242.42592599143728,51.07142869445204L257,51.071428366720085Z"></path><path class="nv-path-30" d="M-9.999999999999993,-10L-9.999999999999998,41.0714285864443L11.39125075915282,17.490522232941856L13.72222236411238,14.093346950977118L22.870370399420576,-3.4236623667049466L25.64259704320139,-10Z"></path><path class="nv-path-31" d="M257,0L242.23773515444975,0L235.09438040494075,20.21304828480225L236.40352331575016,21.40551989129088L257,35.07142855396143Z"></path><path class="nv-path-32" d="M-10.000000000000002,62L-9.999999973122245,62L-10.000000000000002,61.99999997312224Z"></path><path class="nv-path-33" d="M257.0000000001164,-10L238.70370372723517,-10L242.23773515444975,0L257,0Z"></path></g></g></g></g></g></g></g><g class="nv-legendWrap"></g><g class="nv-interactive"></g></g></g></svg></div>
+  <div class="time-series-analysis"></div>
+</div>
+
+</div>
+
+<div class="tweet-activity-panel metric-time-series clicks" id="clicks-time-series-container">
+  <div class="panel-body">
+  <div class="time-series-hero">
+    <div class="time-series-label">Link clicks</div>
+    <div class="time-series-value">1</div>
+    <div class="default-tooltip"><div class="metric-tooltip">
+  <div class="metric-tooltip-body">
+    <div class="metric-tooltip-date">May 11</div>
+    <div class="metric-tooltip-point-label"></div>
+    <div class="metric-tooltip-value">0 link clicks</div>
+  </div>
+  <div class="metric-tooltip-tick">
+  </div>
+</div>
+</div>
+  </div>
+  <div class="time-series-graph"><svg><g class="nvd3 nv-wrap nv-discreteBarWithAxes"><g transform="translate(0,0)"><defs><clipPath id="nv-x-label-clip-1008"><rect width="8.23131672597865" height="16" x="-4.115658362989325"></rect></clipPath></defs><g class="nv-x nv-axis"></g><g class="nv-y nv-axis"></g><g class="nv-barsWrap"><g class="nvd3 nv-wrap nv-discretebar" transform="translate(0,0)"><g><g class="nv-groups"><g class="nv-group nv-series-0" style="stroke-opacity: 1; fill-opacity: 0.75;"><g transform="translate(1.3261566162109375,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(10.472064018249512,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(19.617971420288086,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(28.763879776000977,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(37.909786224365234,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(47.055694580078125,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(56.201602935791016,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(65.3475112915039,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(74.49341583251953,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(83.63932037353516,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(92.78523254394531,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(101.93113708496094,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(111.0770492553711,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(120.22295379638672,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(129.36886596679688,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(138.5147705078125,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(147.66067504882812,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(156.80657958984375,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(165.95248413085938,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(175.09840393066406,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(184.2443084716797,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(193.3902130126953,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(202.53611755371094,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(211.68202209472656,0)" class="nv-bar positive"><rect height="72" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(220.82794189453125,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(229.97384643554688,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(239.1197509765625,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(248.26565551757812,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g></g></g></g></g></g></g></g></svg></div>
+  <div class="time-series-analysis">On average, you earned <strong>0 link clicks</strong> per day
+</div>
+</div>
+
+</div>
+
+<div class="tweet-activity-panel metric-time-series retweets" id="retweets-time-series-container">
+  <div class="panel-body">
+  <div class="time-series-hero">
+    <div class="time-series-label">Retweets</div>
+    <div class="time-series-value">0</div>
+    <div class="default-tooltip"><div class="metric-tooltip">
+  <div class="metric-tooltip-body">
+    <div class="metric-tooltip-date">May 11</div>
+    <div class="metric-tooltip-point-label"></div>
+    <div class="metric-tooltip-value">0 Retweets</div>
+  </div>
+  <div class="metric-tooltip-tick">
+  </div>
+</div>
+</div>
+  </div>
+  <div class="time-series-graph"><svg><g class="nvd3 nv-wrap nv-discreteBarWithAxes"><g transform="translate(0,0)"><defs><clipPath id="nv-x-label-clip-4602"><rect width="8.23131672597865" height="16" x="-4.115658362989325"></rect></clipPath></defs><g class="nv-x nv-axis"></g><g class="nv-y nv-axis"></g><g class="nv-barsWrap"><g class="nvd3 nv-wrap nv-discretebar" transform="translate(0,0)"><g><g class="nv-groups"><g class="nv-group nv-series-0" style="stroke-opacity: 1; fill-opacity: 0.75;"><g transform="translate(1.3261566162109375,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(10.472064018249512,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(19.617971420288086,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(28.763879776000977,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(37.909786224365234,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(47.055694580078125,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(56.201602935791016,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(65.3475112915039,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(74.49341583251953,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(83.63932037353516,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(92.78523254394531,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(101.93113708496094,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(111.0770492553711,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(120.22295379638672,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(129.36886596679688,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(138.5147705078125,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(147.66067504882812,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(156.80657958984375,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(165.95248413085938,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(175.09840393066406,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(184.2443084716797,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(193.3902130126953,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(202.53611755371094,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(211.68202209472656,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(220.82794189453125,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(229.97384643554688,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(239.1197509765625,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(248.26565551757812,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g></g></g></g></g></g></g></g></svg></div>
+  <div class="time-series-analysis">On average, you earned <strong>0 Retweets</strong> per day
+</div>
+</div>
+
+</div>
+<div class="tweet-activity-panel metric-time-series favs" id="favs-time-series-container">
+  <div class="panel-body">
+  <div class="time-series-hero">
+    <div class="time-series-label">Likes</div>
+    <div class="time-series-value">0</div>
+    <div class="default-tooltip"><div class="metric-tooltip">
+  <div class="metric-tooltip-body">
+    <div class="metric-tooltip-date">May 11</div>
+    <div class="metric-tooltip-point-label"></div>
+    <div class="metric-tooltip-value">0 likes</div>
+  </div>
+  <div class="metric-tooltip-tick">
+  </div>
+</div>
+</div>
+  </div>
+  <div class="time-series-graph"><svg><g class="nvd3 nv-wrap nv-discreteBarWithAxes"><g transform="translate(0,0)"><defs><clipPath id="nv-x-label-clip-6813"><rect width="8.23131672597865" height="16" x="-4.115658362989325"></rect></clipPath></defs><g class="nv-x nv-axis"></g><g class="nv-y nv-axis"></g><g class="nv-barsWrap"><g class="nvd3 nv-wrap nv-discretebar" transform="translate(0,0)"><g><g class="nv-groups"><g class="nv-group nv-series-0" style="stroke-opacity: 1; fill-opacity: 0.75;"><g transform="translate(1.3261566162109375,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(10.472064018249512,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(19.617971420288086,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(28.763879776000977,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(37.909786224365234,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(47.055694580078125,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(56.201602935791016,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(65.3475112915039,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(74.49341583251953,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(83.63932037353516,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(92.78523254394531,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(101.93113708496094,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(111.0770492553711,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(120.22295379638672,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(129.36886596679688,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(138.5147705078125,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(147.66067504882812,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(156.80657958984375,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(165.95248413085938,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(175.09840393066406,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(184.2443084716797,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(193.3902130126953,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(202.53611755371094,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(211.68202209472656,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(220.82794189453125,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(229.97384643554688,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(239.1197509765625,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(248.26565551757812,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g></g></g></g></g></g></g></g></svg></div>
+  <div class="time-series-analysis">On average, you earned <strong>0 likes</strong> per day
+</div>
+</div>
+
+</div>
+<div class="tweet-activity-panel metric-time-series replies" id="replies-time-series-container">
+  <div class="panel-body">
+  <div class="time-series-hero">
+    <div class="time-series-label">Replies</div>
+    <div class="time-series-value">0</div>
+    <div class="default-tooltip"><div class="metric-tooltip">
+  <div class="metric-tooltip-body">
+    <div class="metric-tooltip-date">May 11</div>
+    <div class="metric-tooltip-point-label"></div>
+    <div class="metric-tooltip-value">0 replies</div>
+  </div>
+  <div class="metric-tooltip-tick">
+  </div>
+</div>
+</div>
+  </div>
+  <div class="time-series-graph"><svg><g class="nvd3 nv-wrap nv-discreteBarWithAxes"><g transform="translate(0,0)"><defs><clipPath id="nv-x-label-clip-961"><rect width="8.23131672597865" height="16" x="-4.115658362989325"></rect></clipPath></defs><g class="nv-x nv-axis"></g><g class="nv-y nv-axis"></g><g class="nv-barsWrap"><g class="nvd3 nv-wrap nv-discretebar" transform="translate(0,0)"><g><g class="nv-groups"><g class="nv-group nv-series-0" style="stroke-opacity: 1; fill-opacity: 0.75;"><g transform="translate(1.3261566162109375,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(10.472064018249512,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(19.617971420288086,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(28.763879776000977,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(37.909786224365234,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(47.055694580078125,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(56.201602935791016,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(65.3475112915039,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(74.49341583251953,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(83.63932037353516,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(92.78523254394531,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(101.93113708496094,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(111.0770492553711,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(120.22295379638672,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(129.36886596679688,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(138.5147705078125,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(147.66067504882812,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(156.80657958984375,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(165.95248413085938,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(175.09840393066406,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(184.2443084716797,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(193.3902130126953,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(202.53611755371094,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(211.68202209472656,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(220.82794189453125,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(229.97384643554688,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(239.1197509765625,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g><g transform="translate(248.26565551757812,71)" class="nv-bar positive"><rect height="1" width="7.408185053380785" class="discreteBar"></rect></g></g></g></g></g></g></g></g></svg></div>
+  <div class="time-series-analysis">On average, you earned <strong>0 replies</strong> per day
+</div>
+</div>
+
+</div>
+
+        </div>
+    </div>
+</div>
+<div class="tweet-sheet-modal Sheet is-bottomAnchored" id="tweet-sheet-modal" tabindex="-1" role="dialog" aria-labelledby="Tweet Details" aria-hidden="true">
+  <div class="Sheet-overlay"></div>
+<div class="Sheet-headerWrapper"></div>
+<div class="Sheet-containerWrapper">
+  <div class="Sheet-container">
+    <div class="Sheet-content">
+      <div class="Sheet-headerContainer">
+        <div class="Sheet-header">
+          <h3 class="Sheet-title"></h3>
+          <button type="button" class="Sheet-close" aria-hidden="true">
+            <span class="Icon Icon--close Icon--small"></span>
+          </button>
+        </div>
+      </div>
+      <div class="Sheet-body"></div>
+    </div>
+    <div class="Sheet-footerContainer">
+      <div class="Sheet-footer"></div>
+    </div>
+  </div>
+</div>
+<div class="Sheet-footerWrapper"></div>
+
+</div>
+
+<img class="ping" src="/user/twitter_downloader/ping.gif?path=%2Fuser%2Ftwitter_downloader%2Ftweets">
+
+<noscript>
+  &lt;img height="1" width="1" style="display:none;" alt="" src="https://analytics.twitter.com/i/adsct?txn_id=l6gms&amp;p_id=Twitter&amp;tw_sale_amount=0&amp;tw_order_quantity=0" /&gt;
+  &lt;img height="1" width="1" style="display:none;" alt="" src="https://t.co/i/adsct?txn_id=l6gms&amp;p_id=Twitter&amp;tw_sale_amount=0&amp;tw_order_quantity=0" /&gt;
+</noscript>
+    <script async="" src="https://www.google-analytics.com/analytics.js"></script><script async="" src="https://s.pinimg.com/ct/core.js"></script><script src="https://bat.bing.com/bat.js" async=""></script><script async="" src="https://www.google-analytics.com/analytics.js"></script><script src="https://ton.twitter.com/layoutsvc/shared_navbar_js-6ebce78c8e22e25a7710.js" type="text/javascript"></script>
+    <script src="https://platform.twitter.com/oct.js" type="text/javascript"></script>
+    <script src="https://ton.twitter.com/layoutsvc/tracking_pixels_js-6ebce78c8e22e25a7710.js" type="text/javascript"></script>
+  <script src="https://platform.twitter.com/oct.js" charset="utf8"></script>
+<script src="https://ton.twimg.com/insights/en/js/locale.bundle.c36f072dde0e8f8232d0.js"></script>
+<script src="https://ton.twimg.com/insights/en/js/app.bundle.a6b3fd8eb2cc83791b67.js"></script>
+<script src="https://ton.twimg.com/insights/en/js/tweet_activity.bundle.a6b3fd8eb2cc83791b67.js"></script>
+
+
+
+</div><div class="daterangepicker dropdown-menu opensleft show-calendar" style="top: 112px; right: -115.594px; left: auto;"><div class="calendar left"><!-- this input *must* be named "daterangepicker_start" -->
+<input type="text" name="daterangepicker_start" value="04/14/2017" disabled="">
+
+<span class="range-boundary-label">Start date</span>
+<div class="calendar-date"><table class="table-condensed"><thead><tr><th class="prev available"><span class="Icon Icon--caretLeft Icon--tiny"></span>
+</th><th colspan="5" class="month">Apr 2017</th><th class="next available"><span class="Icon Icon--caretRight Icon--tiny"></span>
+</th></tr><tr><th>Su</th><th>Mo</th><th>Tu</th><th>We</th><th>Th</th><th>Fr</th><th>Sa</th></tr></thead><tbody><tr><td class="available off" data-title="r0c0">26</td><td class="available off" data-title="r0c1">27</td><td class="available off" data-title="r0c2">28</td><td class="available off" data-title="r0c3">29</td><td class="available off" data-title="r0c4">30</td><td class="available off" data-title="r0c5">31</td><td class="available" data-title="r0c6">1</td></tr><tr><td class="available" data-title="r1c0">2</td><td class="available" data-title="r1c1">3</td><td class="available" data-title="r1c2">4</td><td class="available" data-title="r1c3">5</td><td class="available" data-title="r1c4">6</td><td class="available" data-title="r1c5">7</td><td class="available" data-title="r1c6">8</td></tr><tr><td class="available" data-title="r2c0">9</td><td class="available" data-title="r2c1">10</td><td class="available" data-title="r2c2">11</td><td class="available" data-title="r2c3">12</td><td class="available" data-title="r2c4">13</td><td class="available active start-date" data-title="r2c5">14</td><td class="available in-range" data-title="r2c6">15</td></tr><tr><td class="available in-range" data-title="r3c0">16</td><td class="available in-range" data-title="r3c1">17</td><td class="available in-range" data-title="r3c2">18</td><td class="available in-range" data-title="r3c3">19</td><td class="available in-range" data-title="r3c4">20</td><td class="available in-range" data-title="r3c5">21</td><td class="available in-range" data-title="r3c6">22</td></tr><tr><td class="available in-range" data-title="r4c0">23</td><td class="available in-range" data-title="r4c1">24</td><td class="available in-range" data-title="r4c2">25</td><td class="available in-range" data-title="r4c3">26</td><td class="available in-range" data-title="r4c4">27</td><td class="available in-range" data-title="r4c5">28</td><td class="available in-range" data-title="r4c6">29</td></tr><tr><td class="available in-range" data-title="r5c0">30</td><td class="available off in-range" data-title="r5c1">1</td><td class="available off in-range" data-title="r5c2">2</td><td class="available off in-range" data-title="r5c3">3</td><td class="available off in-range" data-title="r5c4">4</td><td class="available off in-range" data-title="r5c5">5</td><td class="available off in-range" data-title="r5c6">6</td></tr></tbody></table></div></div><div class="calendar right"><!-- this input *must* be named "daterangepicker_end" -->
+<input type="text" name="daterangepicker_end" value="05/11/2017" disabled="">
+
+<span class="range-boundary-label">End date</span>
+<div class="calendar-date"><table class="table-condensed"><thead><tr><th class="prev available"><span class="Icon Icon--caretLeft Icon--tiny"></span>
+</th><th colspan="5" class="month">May 2017</th><th class="next available"><span class="Icon Icon--caretRight Icon--tiny"></span>
+</th></tr><tr><th>Su</th><th>Mo</th><th>Tu</th><th>We</th><th>Th</th><th>Fr</th><th>Sa</th></tr></thead><tbody><tr><td class="available off in-range" data-title="r0c0">30</td><td class="available in-range" data-title="r0c1">1</td><td class="available in-range" data-title="r0c2">2</td><td class="available in-range" data-title="r0c3">3</td><td class="available in-range" data-title="r0c4">4</td><td class="available in-range" data-title="r0c5">5</td><td class="available in-range" data-title="r0c6">6</td></tr><tr><td class="available in-range" data-title="r1c0">7</td><td class="available in-range" data-title="r1c1">8</td><td class="available in-range" data-title="r1c2">9</td><td class="available in-range" data-title="r1c3">10</td><td class="available active end-date" data-title="r1c4">11</td><td class="available" data-title="r1c5">12</td><td class="available" data-title="r1c6">13</td></tr><tr><td class="available" data-title="r2c0">14</td><td class="available" data-title="r2c1">15</td><td class="available" data-title="r2c2">16</td><td class="available" data-title="r2c3">17</td><td class="available" data-title="r2c4">18</td><td class="available" data-title="r2c5">19</td><td class="available" data-title="r2c6">20</td></tr><tr><td class="available" data-title="r3c0">21</td><td class="available" data-title="r3c1">22</td><td class="available" data-title="r3c2">23</td><td class="available" data-title="r3c3">24</td><td class="available" data-title="r3c4">25</td><td class="available" data-title="r3c5">26</td><td class="available" data-title="r3c6">27</td></tr><tr><td class="available" data-title="r4c0">28</td><td class="available" data-title="r4c1">29</td><td class="available" data-title="r4c2">30</td><td class="available" data-title="r4c3">31</td><td class="available off" data-title="r4c4">1</td><td class="available off" data-title="r4c5">2</td><td class="available off" data-title="r4c6">3</td></tr><tr><td class="available off" data-title="r5c0">4</td><td class="available off" data-title="r5c1">5</td><td class="available off" data-title="r5c2">6</td><td class="available off" data-title="r5c3">7</td><td class="available off" data-title="r5c4">8</td><td class="available off" data-title="r5c5">9</td><td class="available off" data-title="r5c6">10</td></tr></tbody></table></div></div><div class="ranges"><ul><li>Last 7 Days</li><li class="active">Last 28 Days</li><li>May 2017</li><li>April 2017</li><li>March 2017</li><li>February 2017</li><li>January 2017</li><li class="">Custom</li></ul><div class="range_inputs"><div class="daterangepicker_start_input"><label for="daterangepicker_start">Start date</label><input class="input-mini" type="text" name="daterangepicker_start" value=""></div><div class="daterangepicker_end_input"><label for="daterangepicker_end">End date</label><input class="input-mini" type="text" name="daterangepicker_end" value=""></div><button class="applyBtn btn btn-sm btn-primary">Update</button>&nbsp;<button class="cancelBtn btn btn-sm btn-default">Clear</button></div></div></div><script src="https://analytics.twitter.com/i/adsct?p_id=Twitter&amp;p_user_id=0&amp;txn_id=l6gms&amp;tw_sale_amount=0&amp;tw_order_quantity=0&amp;tw_iframe_status=0&amp;tpx_cb=twttr.conversion.loadPixels" type="text/javascript"></script><img src="https://amplifypixel.outbrain.com/pixel?mid=0090ae3066e8ad5e4ae7875b58f519eb6a" width="0" height="0"><img src="https://ct.pinterest.com/v3/?tid=2619599993864&amp;noscript=1" width="1" height="1" style="display:none;" alt=""><div style="width:0px; height:0px; display:none; visibility:hidden;" id="batBeacon0.8777561046184457"><img style="width:0px; height:0px; display:none; visibility:hidden;" id="batBeacon0.3410586246356959" width="0" height="0" alt="" src="https://bat.bing.com/action/0?ti=4064013&amp;Ver=2&amp;mid=ea2b406e-fb29-2279-78e1-ae3dabb96fa4&amp;evt=pageLoad&amp;sid=e4f6adcd-0&amp;lt=954&amp;pi=-1292315712&amp;lg=en-US&amp;sw=1920&amp;sh=1080&amp;sc=24&amp;tl=Tweet Activity analytics for twitter_downloader&amp;p=https%3A%2F%2Fanalytics.twitter.com%2Fuser%2Ftwitter_downloader%2Ftweets&amp;r=&amp;rn=419916"></div><script src="https://analytics.twitter.com/i/adsct?p_id=Twitter&amp;p_user_id=0&amp;txn_id=l46ue&amp;tw_sale_amount=0&amp;tw_order_quantity=0&amp;tw_iframe_status=0&amp;tpx_cb=twttr.conversion.loadPixels" type="text/javascript"></script><script src="https://analytics.twitter.com/i/adsct?p_id=Twitter&amp;p_user_id=0&amp;txn_id=l49oo&amp;tw_sale_amount=0&amp;tw_order_quantity=0&amp;tw_iframe_status=0&amp;tpx_cb=twttr.conversion.loadPixels" type="text/javascript"></script><script src="https://analytics.twitter.com/i/adsct?p_id=Twitter&amp;p_user_id=0&amp;txn_id=l5d9e&amp;tw_sale_amount=0&amp;tw_order_quantity=0&amp;tw_iframe_status=0&amp;tpx_cb=twttr.conversion.loadPixels" type="text/javascript"></script><script src="https://analytics.twitter.com/i/adsct?p_id=Twitter&amp;p_user_id=0&amp;txn_id=l5i2q&amp;tw_sale_amount=0&amp;tw_order_quantity=0&amp;tw_iframe_status=0&amp;tpx_cb=twttr.conversion.loadPixels" type="text/javascript"></script><script src="https://analytics.twitter.com/i/adsct?p_id=Twitter&amp;p_user_id=0&amp;txn_id=l5i2t&amp;tw_sale_amount=0&amp;tw_order_quantity=0&amp;tw_iframe_status=0&amp;tpx_cb=twttr.conversion.loadPixels" type="text/javascript"></script><script src="https://analytics.twitter.com/i/adsct?p_id=Twitter&amp;p_user_id=0&amp;txn_id=l5i2x&amp;tw_sale_amount=0&amp;tw_order_quantity=0&amp;tw_iframe_status=0&amp;tpx_cb=twttr.conversion.loadPixels" type="text/javascript"></script><script src="https://analytics.twitter.com/i/adsct?p_id=Twitter&amp;p_user_id=0&amp;txn_id=l5i38&amp;tw_sale_amount=0&amp;tw_order_quantity=0&amp;tw_iframe_status=0&amp;tpx_cb=twttr.conversion.loadPixels" type="text/javascript"></script><script src="https://analytics.twitter.com/i/adsct?p_id=Twitter&amp;p_user_id=0&amp;txn_id=l5i30&amp;tw_sale_amount=0&amp;tw_order_quantity=0&amp;tw_iframe_status=0&amp;tpx_cb=twttr.conversion.loadPixels" type="text/javascript"></script><script src="https://analytics.twitter.com/i/adsct?p_id=Twitter&amp;p_user_id=0&amp;txn_id=l5i3e&amp;tw_sale_amount=0&amp;tw_order_quantity=0&amp;tw_iframe_status=0&amp;tpx_cb=twttr.conversion.loadPixels" type="text/javascript"></script><script src="https://analytics.twitter.com/i/adsct?p_id=Twitter&amp;p_user_id=0&amp;txn_id=l5i3k&amp;tw_sale_amount=0&amp;tw_order_quantity=0&amp;tw_iframe_status=0&amp;tpx_cb=twttr.conversion.loadPixels" type="text/javascript"></script><script src="https://analytics.twitter.com/i/adsct?p_id=Twitter&amp;p_user_id=0&amp;txn_id=l5i3h&amp;tw_sale_amount=0&amp;tw_order_quantity=0&amp;tw_iframe_status=0&amp;tpx_cb=twttr.conversion.loadPixels" type="text/javascript"></script><script src="https://analytics.twitter.com/i/adsct?p_id=Twitter&amp;p_user_id=0&amp;txn_id=l6d0w&amp;tw_sale_amount=0&amp;tw_order_quantity=0&amp;tw_iframe_status=0&amp;tpx_cb=twttr.conversion.loadPixels" type="text/javascript"></script><script src="https://analytics.twitter.com/i/adsct?p_id=Twitter&amp;p_user_id=0&amp;txn_id=ntiye&amp;tw_sale_amount=0&amp;tw_order_quantity=0&amp;tw_iframe_status=0&amp;tpx_cb=twttr.conversion.loadPixels" type="text/javascript"></script><script src="https://analytics.twitter.com/i/adsct?p_id=Twitter&amp;p_user_id=0&amp;txn_id=ntiyc&amp;tw_sale_amount=0&amp;tw_order_quantity=0&amp;tw_iframe_status=0&amp;tpx_cb=twttr.conversion.loadPixels" type="text/javascript"></script><script src="https://analytics.twitter.com/i/adsct?p_id=Twitter&amp;p_user_id=0&amp;txn_id=ntiy9&amp;tw_sale_amount=0&amp;tw_order_quantity=0&amp;tw_iframe_status=0&amp;tpx_cb=twttr.conversion.loadPixels" type="text/javascript"></script><script src="https://analytics.twitter.com/i/adsct?p_id=Twitter&amp;p_user_id=0&amp;txn_id=nu2ql&amp;tw_sale_amount=0&amp;tw_order_quantity=0&amp;tw_iframe_status=0&amp;tpx_cb=twttr.conversion.loadPixels" type="text/javascript"></script><script src="https://analytics.twitter.com/i/adsct?p_id=Twitter&amp;p_user_id=0&amp;txn_id=ntxn0&amp;tw_sale_amount=0&amp;tw_order_quantity=0&amp;tw_iframe_status=0&amp;tpx_cb=twttr.conversion.loadPixels" type="text/javascript"></script><script src="https://analytics.twitter.com/i/adsct?p_id=Twitter&amp;p_user_id=0&amp;txn_id=nu1z7&amp;tw_sale_amount=0&amp;tw_order_quantity=0&amp;tw_iframe_status=0&amp;tpx_cb=twttr.conversion.loadPixels" type="text/javascript"></script></body></html>

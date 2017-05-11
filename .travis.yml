@@ -8,6 +8,6 @@ python:
 
 before_install:
   - sudo apt-get -qq update
-  - sudo apt-get -y install chromium-chromedriver xvfb
+  - sudo apt-get -y install xvfb
 install: "pip install -r requirements.txt"
 script: py.test

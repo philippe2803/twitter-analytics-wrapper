@@ -1,8 +1,11 @@
 import os
+import platform
+SYST = platform.system().lower()
 from datetime import datetime, timedelta
 from math import ceil
 from twitter_analytics.calendar import AnalyticsCalendar
-from pyvirtualdisplay import Display
+if SYST != 'windows':
+    from pyvirtualdisplay import Display
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.action_chains import ActionChains
@@ -42,7 +45,7 @@ class ReportDownloader(object):
 
         # Start creating fake display if not show_browser
         self.show_browser = show_browser
-        if not self.show_browser:
+        if not self.show_browser and SYST != 'windows':
             self.display = Display(visible=0, size=(1200, 1000))
             self.display.start()
 
@@ -64,7 +67,14 @@ class ReportDownloader(object):
             self.has_date_range = False
 
         # Create Chrome Browser
-        self.browser = webdriver.Chrome("/usr/lib/chromium-browser/chromedriver", chrome_options=chrome_options)
+        if SYST != 'windows':
+            self.browser = webdriver.Chrome(r"/usr/lib/chromium-browser/chromedriver",chrome_options=chrome_options)
+        else:
+            windriver = os.environ.get('chromedriver') # get environment variable
+            if 'chromedriver.exe' in os.listdir() or windriver == None:
+                 self.browser = webdriver.Chrome(chrome_options=chrome_options)
+            else:
+                self.browser = webdriver.Chrome(windriver,chrome_options=chrome_options)
 
         # Login on Twitter
         self.browser.get("http://twitter.com/{}".format(self.username))
@@ -199,5 +209,6 @@ class ReportDownloader(object):
     def quit(self):
         random_time_sleep()
         self.browser.quit()
-        if not self.show_browser:
+
+        if not self.show_browser and SYST != 'windows':
             self.display.stop()

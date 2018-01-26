@@ -67,3 +67,14 @@ for report in reports_filepath:
 ```
 
 If you encounter issues, submit it on this repo. I also accept pull requests.
+
+## Mac OS install prerequisites
+
+- xvfb: Install XQuartz. Download the installer from [here](https://www.xquartz.org).
+- Chromedriver: The easiest way to obtain this is via [Homebrew](https://brew.sh):
+ 
+    ```commandline
+    $ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    
+    $ brew install chromedriver
+    ```

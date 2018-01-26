@@ -67,7 +67,9 @@ class ReportDownloader(object):
             self.has_date_range = False
 
         # Create Chrome Browser
-        if SYST != 'windows':
+        if SYST == 'darwin':
+            self.browser = webdriver.Chrome(r"/usr/local/bin/chromedriver", chrome_options=chrome_options)
+        elif SYST == 'linux':
             self.browser = webdriver.Chrome(r"/usr/lib/chromium-browser/chromedriver",chrome_options=chrome_options)
         else:
             windriver = os.environ.get('chromedriver') # get environment variable
@@ -105,7 +107,7 @@ class ReportDownloader(object):
 
         random_time_sleep()     # to be sure report is fully downloaded
         self.quit()
-        reports_downloaded = [self.download_folder + report for report in os.listdir(self.download_folder)
+        reports_downloaded = [os.path.join(self.download_folder,'') + report for report in os.listdir(self.download_folder)
                               if '.csv' in report]
         return reports_downloaded
 

@@ -72,9 +72,23 @@ If you encounter issues, submit it on this repo. I also accept pull requests.
 
 - xvfb: Install XQuartz. Download the installer from [here](https://www.xquartz.org).
 - Chromedriver: The easiest way to obtain this is via [Homebrew](https://brew.sh):
- 
+
     ```commandline
     $ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     
     $ brew install chromedriver
     ```
+
+# If you are installing from this repository:
+
+1. Clone/Download (and unzip) this repo in a known location in your computer
+
+2. Open a terminal and navigate to the location chosen for step 1
+
+3. In the terminal type the following
+
+   ```
+   python setup.py install -f
+   ```
+
+   ​

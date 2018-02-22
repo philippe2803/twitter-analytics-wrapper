@@ -88,7 +88,7 @@ If you encounter issues, submit it on this repo. I also accept pull requests.
 3. In the terminal type the following
 
    ```
-   python setup.py install -f
+   python setup.py install --force
    ```
 
    ​

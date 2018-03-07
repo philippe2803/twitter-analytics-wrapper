@@ -136,19 +136,8 @@ class ReportDownloader(object):
         """
         random_time_sleep()
 
-        # Hover over the navigation (no need to click somehow)
-        element_to_hover_over = self.browser.find_element_by_xpath(
-            '//li[@class="me dropdown session js-session"]/a[@href="/settings/account"]'
-        )
-        hover = ActionChains(self.browser).move_to_element(element_to_hover_over)
-        hover.perform()
-        element_to_hover_over.click()
+        self.browser.get("https://analytics.twitter.com/")
 
-        random_time_sleep()
-
-        # dropdown-menu
-        self.browser.find_element_by_xpath(
-            '//li[@role="presentation"]/a[@href="https://analytics.twitter.com/"]').click()
         random_time_sleep()
 
     def go_to_report_page(self):

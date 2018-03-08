@@ -148,6 +148,9 @@ class ReportDownloader(object):
         Check routinely if the download bug occurred, and re-click the download button if it is the case.
 
         """
+
+        random_time_sleep()
+
         len_download_folder = len(os.listdir(self.download_folder))
         download_button = self.browser.find_element_by_xpath(
             '//div[@id="export"]/button[@class="btn btn-default ladda-button"]'

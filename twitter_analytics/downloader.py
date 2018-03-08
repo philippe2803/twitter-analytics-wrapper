@@ -155,7 +155,7 @@ class ReportDownloader(object):
         # self.browser.find_element_by_xpath(
         #     '//li[@role="presentation"]/a[@href="https://analytics.twitter.com/"]').click()
         # =======================================================
-        
+
         random_time_sleep()
 
     def go_to_report_page(self):

@@ -118,12 +118,12 @@ class ReportDownloader(object):
         random_time_sleep()
         # Fills with credentials and click 'Log in'
         self.browser.find_element_by_xpath(
-            '//input[@type="text"]').send_keys(self.username)
+            '//input[@class="js-username-field email-input js-initial-focus"]').send_keys(self.username)
 
         random_time_sleep()
 
         self.browser.find_element_by_xpath(
-            '//input[@type="password"]').send_keys(self.password)
+            '//input[@class="js-password-field"]').send_keys(self.password)
         self.browser.find_element_by_xpath('//button[@type="submit"]').click()
 
         random_time_sleep()

@@ -117,9 +117,9 @@ class ReportDownloader(object):
         """
         # Fills with credentials and click 'Log in'
         self.browser.find_element_by_xpath(
-            '//div[@class="js-username-field email-input js-initial-focus"]/input[@type="text"]').send_keys(self.username)
+            '//input[@type="text"]').send_keys(self.username)
         self.browser.find_element_by_xpath(
-            '//div[@class="js-password-field"]/input[@type="password"]').send_keys(self.password)
+            '//input[@type="password"]').send_keys(self.password)
         self.browser.find_element_by_xpath('//button[@type="submit"]').click()
 
         random_time_sleep()

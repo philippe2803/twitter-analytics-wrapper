@@ -117,8 +117,8 @@ class ReportDownloader(object):
         """
         # Hover over the navigation
         element_to_hover_over = self.browser.find_element_by_xpath('//a[@href="/login"]')
-        hover = ActionChains(self.browser).move_to_element(element_to_hover_over)
-        hover.perform()
+        element_to_hover_over.click()
+
         random_time_sleep()
 
         # Fills with credentials and click 'Log in'

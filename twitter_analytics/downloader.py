@@ -79,7 +79,7 @@ class ReportDownloader(object):
                 self.browser = webdriver.Chrome(windriver,chrome_options=chrome_options)
 
         # Login on Twitter
-        self.browser.get("http://twitter.com/{}".format(self.username))
+        self.browser.get("https://twitter.com/login?redirect_after_login=https%3A%2F%2Fanalytics.twitter.com%2Fabout&hide_message=1")
 
     def run(self):
         """
@@ -115,18 +115,12 @@ class ReportDownloader(object):
         """
         Login to twitter.
         """
-        # Hover over the navigation
-        element_to_hover_over = self.browser.find_element_by_xpath('//a[@href="/login"]')
-        element_to_hover_over.click()
-
-        random_time_sleep()
-
         # Fills with credentials and click 'Log in'
         self.browser.find_element_by_xpath(
-            '//div[@class="LoginForm-input LoginForm-username"]/input[@type="text"]').send_keys(self.username)
+            '//div[@class="js-username-field email-input js-initial-focus"]/input[@type="text"]').send_keys(self.username)
         self.browser.find_element_by_xpath(
-            '//div[@class="LoginForm-input LoginForm-password"]/input[@type="password"]').send_keys(self.password)
-        self.browser.find_element_by_xpath('//input[@value="Log in"]').click()
+            '//div[@class="js-password-field"]/input[@type="password"]').send_keys(self.password)
+        self.browser.find_element_by_xpath('//button[@type="submit"]').click()
 
         random_time_sleep()
 

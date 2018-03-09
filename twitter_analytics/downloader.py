@@ -79,7 +79,9 @@ class ReportDownloader(object):
                 self.browser = webdriver.Chrome(windriver,chrome_options=chrome_options)
 
         # Login on Twitter
-        self.browser.get("http://twitter.com/{}".format(self.username))
+        # self.browser.get("http://twitter.com/{}".format(self.username))
+        twitter_url = "https://twitter.com/login?redirect_after_login=https%3A%2F%2Fanalytics.twitter.com%2Fabout&hide_message=1"
+        self.browser.get(twitter_url)
 
     def run(self):
         """
@@ -115,20 +117,28 @@ class ReportDownloader(object):
         """
         Login to twitter.
         """
-        # Hover over the navigation
-        element_to_hover_over = self.browser.find_element_by_xpath('//a[@href="/login"]')
-        hover = ActionChains(self.browser).move_to_element(element_to_hover_over)
-        hover.perform()
+        # # Hover over the navigation
+        # element_to_hover_over = self.browser.find_element_by_xpath('//a[@href="/login"]')
+        # hover = ActionChains(self.browser).move_to_element(element_to_hover_over)
+        # hover.perform()
         random_time_sleep()
 
         # Fills with credentials and click 'Log in'
         self.browser.find_element_by_xpath(
-            '//div[@class="LoginForm-input LoginForm-username"]/input[@type="text"]').send_keys(self.username)
-        self.browser.find_element_by_xpath(
-            '//div[@class="LoginForm-input LoginForm-password"]/input[@type="password"]').send_keys(self.password)
-        self.browser.find_element_by_xpath('//input[@value="Log in"]').click()
+            '//input[@class="js-username-field email-input js-initial-focus"]').send_keys(self.username)
+        self.browser.find_element_by_xpath('//input[@class="js-password-field"]').send_keys(self.password)
+        self.browser.find_element_by_xpath('//button[@type="submit"]').click()
 
         random_time_sleep()
+
+        # NOT NEEDED ANY MORE
+        # =======================================================
+        # self.browser.find_element_by_xpath(
+        #     '//div[@class="LoginForm-input LoginForm-username"]/input[@type="text"]').send_keys(self.username)
+        # self.browser.find_element_by_xpath(
+        #     '//div[@class="LoginForm-input LoginForm-password"]/input[@type="password"]').send_keys(self.password)
+        # self.browser.find_element_by_xpath('//input[@value="Log in"]').click()
+        # =======================================================
 
     def go_to_analytics(self):
         """
@@ -136,12 +146,13 @@ class ReportDownloader(object):
         """
         random_time_sleep()
 
-        # Hover over the navigation (no need to click somehow)
+        # Going directly to the analytics page
         self.browser.get("https://analytics.twitter.com/")
 
         # THE FOLLOWING CODE IS NO LONGER NEEDED
         # AS TWITTER HAS CHANGED THEIR PAGE LAYOUT
         # =======================================================
+        # Hover over the navigation (no need to click somehow)
         # element_to_hover_over = self.browser.find_element_by_xpath(
         #     '//li[@class="me dropdown session js-session"]/a[@href="/settings/account"]'
         # )
@@ -172,6 +183,7 @@ class ReportDownloader(object):
         Check routinely if the download bug occurred, and re-click the download button if it is the case.
 
         """
+        random_time_sleep()
         len_download_folder = len(os.listdir(self.download_folder))
         download_button = self.browser.find_element_by_xpath(
             '//div[@id="export"]/button[@class="btn btn-default ladda-button"]'

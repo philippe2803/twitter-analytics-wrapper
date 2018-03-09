@@ -70,9 +70,9 @@ class ReportDownloader(object):
 
         # Create Chrome Browser
         if SYST == 'darwin':
-            self.browser = webdriver.Chrome(r"/usr/local/bin/chromedriver", chrome_options=chrome_options)
+            self.browser = webdriver.Chrome(r"/usr/local/bin/chromedriver", chrome_options=chrome_options, service_args=['--verbose', '--log-path=/tmp/chromedriver.log'])
         elif SYST == 'linux':
-            self.browser = webdriver.Chrome(r"/usr/lib/chromium-browser/chromedriver",chrome_options=chrome_options)
+            self.browser = webdriver.Chrome(r"/usr/lib/chromium-browser/chromedriver",chrome_options=chrome_options, service_args=['--verbose', '--log-path=/tmp/chromedriver.log'])
         else:
             windriver = os.environ.get('chromedriver') # get environment variable
             if 'chromedriver.exe' in os.listdir() or windriver == None:

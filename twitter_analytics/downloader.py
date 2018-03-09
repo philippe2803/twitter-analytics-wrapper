@@ -52,6 +52,8 @@ class ReportDownloader(object):
         # Chromedriver settings
         self.download_folder = download_folder
         chrome_options = webdriver.ChromeOptions()
+        chrome_options.add_argument('--headless')
+        chrome_options.add_argument('--ignore-certificate-errors')
         prefs = {"download.default_directory": self.download_folder}
         chrome_options.add_experimental_option("prefs", prefs)
 

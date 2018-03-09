@@ -52,6 +52,9 @@ class ReportDownloader(object):
         # Chromedriver settings
         self.download_folder = download_folder
         chrome_options = webdriver.ChromeOptions()
+        chrome_options.add_argument('--headless')
+        chrome_options.add_argument('--ignore-certificate-errors')
+        chrome_options.add_argument('--no-sandbox')
         prefs = {"download.default_directory": self.download_folder}
         chrome_options.add_experimental_option("prefs", prefs)
 
@@ -68,9 +71,9 @@ class ReportDownloader(object):
 
         # Create Chrome Browser
         if SYST == 'darwin':
-            self.browser = webdriver.Chrome(r"/usr/local/bin/chromedriver", chrome_options=chrome_options)
+            self.browser = webdriver.Chrome(r"/usr/local/bin/chromedriver", chrome_options=chrome_options, service_args=['--verbose', '--log-path=/tmp/chromedriver.log'])
         elif SYST == 'linux':
-            self.browser = webdriver.Chrome(r"/usr/lib/chromium-browser/chromedriver",chrome_options=chrome_options)
+            self.browser = webdriver.Chrome(r"/usr/lib/chromium-browser/chromedriver",chrome_options=chrome_options, service_args=['--verbose', '--log-path=/tmp/chromedriver.log'])
         else:
             windriver = os.environ.get('chromedriver') # get environment variable
             if 'chromedriver.exe' in os.listdir() or windriver == None:
@@ -79,7 +82,7 @@ class ReportDownloader(object):
                 self.browser = webdriver.Chrome(windriver,chrome_options=chrome_options)
 
         # Login on Twitter
-        self.browser.get("http://twitter.com/{}".format(self.username))
+        self.browser.get("https://twitter.com/login?redirect_after_login=https%3A%2F%2Fanalytics.twitter.com%2Fabout&hide_message=1")
 
     def run(self):
         """
@@ -115,18 +118,16 @@ class ReportDownloader(object):
         """
         Login to twitter.
         """
-        # Hover over the navigation
-        element_to_hover_over = self.browser.find_element_by_xpath('//a[@href="/login"]')
-        hover = ActionChains(self.browser).move_to_element(element_to_hover_over)
-        hover.perform()
         random_time_sleep()
-
         # Fills with credentials and click 'Log in'
         self.browser.find_element_by_xpath(
-            '//div[@class="LoginForm-input LoginForm-username"]/input[@type="text"]').send_keys(self.username)
+            '//input[@class="js-username-field email-input js-initial-focus"]').send_keys(self.username)
+
+        random_time_sleep()
+
         self.browser.find_element_by_xpath(
-            '//div[@class="LoginForm-input LoginForm-password"]/input[@type="password"]').send_keys(self.password)
-        self.browser.find_element_by_xpath('//input[@value="Log in"]').click()
+            '//input[@class="js-password-field"]').send_keys(self.password)
+        self.browser.find_element_by_xpath('//button[@type="submit"]').click()
 
         random_time_sleep()
 
@@ -136,19 +137,8 @@ class ReportDownloader(object):
         """
         random_time_sleep()
 
-        # Hover over the navigation (no need to click somehow)
-        element_to_hover_over = self.browser.find_element_by_xpath(
-            '//li[@class="me dropdown session js-session"]/a[@href="/settings/account"]'
-        )
-        hover = ActionChains(self.browser).move_to_element(element_to_hover_over)
-        hover.perform()
-        element_to_hover_over.click()
+        self.browser.get("https://analytics.twitter.com/")
 
-        random_time_sleep()
-
-        # dropdown-menu
-        self.browser.find_element_by_xpath(
-            '//li[@role="presentation"]/a[@href="https://analytics.twitter.com/"]').click()
         random_time_sleep()
 
     def go_to_report_page(self):
@@ -165,6 +155,9 @@ class ReportDownloader(object):
         Check routinely if the download bug occurred, and re-click the download button if it is the case.
 
         """
+
+        random_time_sleep()
+
         len_download_folder = len(os.listdir(self.download_folder))
         download_button = self.browser.find_element_by_xpath(
             '//div[@id="export"]/button[@class="btn btn-default ladda-button"]'

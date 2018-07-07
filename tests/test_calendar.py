@@ -3,13 +3,20 @@ from twitter_analytics import ReportDownloader
 from selenium import webdriver
 from pyvirtualdisplay import Display
 import os
+import platform
 
 
 def NOtest_calendar_date_picking():
     # Creating driver and virtual display
     display = Display(visible=0, size=(1200, 1000))
     display.start()
-    browser = webdriver.Chrome("/usr/lib/chromium-browser/chromedriver")
+
+    SYST = platform.system().lower()
+    if SYST == 'darwin':
+        browser = webdriver.Chrome(r"/usr/local/bin/chromedriver")
+    else:
+        browser = webdriver.Chrome("/usr/lib/chromium-browser/chromedriver")
+    #browser = webdriver.Chrome("/usr/lib/chromium-browser/chromedriver")
 
     # Actual test
     fixture_page = os.path.join(os.path.dirname(__file__), 'fixtures/report_page_dump.html')
@@ -23,3 +30,6 @@ def NOtest_calendar_date_picking():
     browser.quit()
     display.stop()
 
+
+if __name__ == "__main__":
+    NOtest_calendar_date_picking()

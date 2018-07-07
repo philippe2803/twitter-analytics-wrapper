@@ -1,8 +1,11 @@
 import os
+import platform
+SYST = platform.system().lower()
 from datetime import datetime, timedelta
 from math import ceil
 from twitter_analytics.calendar import AnalyticsCalendar
-from pyvirtualdisplay import Display
+if SYST != 'windows':
+    from pyvirtualdisplay import Display
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.action_chains import ActionChains
@@ -42,7 +45,7 @@ class ReportDownloader(object):
 
         # Start creating fake display if not show_browser
         self.show_browser = show_browser
-        if not self.show_browser:
+        if not self.show_browser and SYST != 'windows':
             self.display = Display(visible=0, size=(1200, 1000))
             self.display.start()
 
@@ -64,10 +67,21 @@ class ReportDownloader(object):
             self.has_date_range = False
 
         # Create Chrome Browser
-        self.browser = webdriver.Chrome("/usr/lib/chromium-browser/chromedriver", chrome_options=chrome_options)
+        if SYST == 'darwin':
+            self.browser = webdriver.Chrome(r"/usr/local/bin/chromedriver", chrome_options=chrome_options)
+        elif SYST == 'linux':
+            self.browser = webdriver.Chrome(r"/usr/lib/chromium-browser/chromedriver",chrome_options=chrome_options)
+        else:
+            windriver = os.environ.get('chromedriver') # get environment variable
+            if 'chromedriver.exe' in os.listdir() or windriver == None:
+                 self.browser = webdriver.Chrome(chrome_options=chrome_options)
+            else:
+                self.browser = webdriver.Chrome(windriver,chrome_options=chrome_options)
 
         # Login on Twitter
-        self.browser.get("http://twitter.com/{}".format(self.username))
+        # self.browser.get("http://twitter.com/{}".format(self.username))
+        twitter_url = "https://twitter.com/login?redirect_after_login=https%3A%2F%2Fanalytics.twitter.com%2Fabout&hide_message=1"
+        self.browser.get(twitter_url)
 
     def run(self):
         """
@@ -95,7 +109,7 @@ class ReportDownloader(object):
 
         random_time_sleep()     # to be sure report is fully downloaded
         self.quit()
-        reports_downloaded = [self.download_folder + report for report in os.listdir(self.download_folder)
+        reports_downloaded = [os.path.join(self.download_folder,'') + report for report in os.listdir(self.download_folder)
                               if '.csv' in report]
         return reports_downloaded
 
@@ -103,20 +117,28 @@ class ReportDownloader(object):
         """
         Login to twitter.
         """
-        # Hover over the navigation
-        element_to_hover_over = self.browser.find_element_by_xpath('//a[@href="/login"]')
-        hover = ActionChains(self.browser).move_to_element(element_to_hover_over)
-        hover.perform()
+        # # Hover over the navigation
+        # element_to_hover_over = self.browser.find_element_by_xpath('//a[@href="/login"]')
+        # hover = ActionChains(self.browser).move_to_element(element_to_hover_over)
+        # hover.perform()
         random_time_sleep()
 
         # Fills with credentials and click 'Log in'
         self.browser.find_element_by_xpath(
-            '//div[@class="LoginForm-input LoginForm-username"]/input[@type="text"]').send_keys(self.username)
-        self.browser.find_element_by_xpath(
-            '//div[@class="LoginForm-input LoginForm-password"]/input[@type="password"]').send_keys(self.password)
-        self.browser.find_element_by_xpath('//input[@value="Log in"]').click()
+            '//input[@class="js-username-field email-input js-initial-focus"]').send_keys(self.username)
+        self.browser.find_element_by_xpath('//input[@class="js-password-field"]').send_keys(self.password)
+        self.browser.find_element_by_xpath('//button[@type="submit"]').click()
 
         random_time_sleep()
+
+        # NOT NEEDED ANY MORE
+        # =======================================================
+        # self.browser.find_element_by_xpath(
+        #     '//div[@class="LoginForm-input LoginForm-username"]/input[@type="text"]').send_keys(self.username)
+        # self.browser.find_element_by_xpath(
+        #     '//div[@class="LoginForm-input LoginForm-password"]/input[@type="password"]').send_keys(self.password)
+        # self.browser.find_element_by_xpath('//input[@value="Log in"]').click()
+        # =======================================================
 
     def go_to_analytics(self):
         """
@@ -124,19 +146,27 @@ class ReportDownloader(object):
         """
         random_time_sleep()
 
+        # Going directly to the analytics page
+        self.browser.get("https://analytics.twitter.com/")
+
+        # THE FOLLOWING CODE IS NO LONGER NEEDED
+        # AS TWITTER HAS CHANGED THEIR PAGE LAYOUT
+        # =======================================================
         # Hover over the navigation (no need to click somehow)
-        element_to_hover_over = self.browser.find_element_by_xpath(
-            '//li[@class="me dropdown session js-session"]/a[@href="/settings/account"]'
-        )
-        hover = ActionChains(self.browser).move_to_element(element_to_hover_over)
-        hover.perform()
-        element_to_hover_over.click()
+        # element_to_hover_over = self.browser.find_element_by_xpath(
+        #     '//li[@class="me dropdown session js-session"]/a[@href="/settings/account"]'
+        # )
+        # hover = ActionChains(self.browser).move_to_element(element_to_hover_over)
+        # hover.perform()
+        # element_to_hover_over.click()
+        #
+        # random_time_sleep()
+        #
+        # # dropdown-menu
+        # self.browser.find_element_by_xpath(
+        #     '//li[@role="presentation"]/a[@href="https://analytics.twitter.com/"]').click()
+        # =======================================================
 
-        random_time_sleep()
-
-        # dropdown-menu
-        self.browser.find_element_by_xpath(
-            '//li[@role="presentation"]/a[@href="https://analytics.twitter.com/"]').click()
         random_time_sleep()
 
     def go_to_report_page(self):
@@ -153,6 +183,7 @@ class ReportDownloader(object):
         Check routinely if the download bug occurred, and re-click the download button if it is the case.
 
         """
+        random_time_sleep()
         len_download_folder = len(os.listdir(self.download_folder))
         download_button = self.browser.find_element_by_xpath(
             '//div[@id="export"]/button[@class="btn btn-default ladda-button"]'
@@ -199,5 +230,6 @@ class ReportDownloader(object):
     def quit(self):
         random_time_sleep()
         self.browser.quit()
-        if not self.show_browser:
+
+        if not self.show_browser and SYST != 'windows':
             self.display.stop()

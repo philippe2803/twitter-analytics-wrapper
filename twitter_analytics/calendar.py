@@ -22,6 +22,8 @@ class AnalyticsCalendar(object):
         self.pick_from_date()
         self.pick_to_date()
         self.click_update_date_button()
+        self.open_calendar()
+        self.click_update_date_button()
         return 'completed'      # used for unit test
 
     def open_calendar(self):

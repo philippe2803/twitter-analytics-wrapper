@@ -17,7 +17,7 @@ class ReportDownloader(object):
     """ Twitter Analytics report downloader using Selenium browser interaction """
 
     def __init__(self, username, password, from_date=None, to_date=None, download_folder=os.getcwd(), proxy=None,
-                 show_browser=False):
+                 show_browser=False, section='tweets'):
         """
         Create a browser instance and a fake display. Set up specific preferences for download folder.
         First interaction sent out as visiting the twitter profile of the username given.
@@ -48,6 +48,8 @@ class ReportDownloader(object):
         if not self.show_browser and SYST != 'windows':
             self.display = Display(visible=0, size=(1200, 1000))
             self.display.start()
+
+        self.section = section
 
         # Chromedriver settings
         self.download_folder = download_folder
@@ -91,7 +93,13 @@ class ReportDownloader(object):
         """
         self.login()
         self.go_to_analytics()
-        self.go_to_report_page()
+
+        if self.section == 'tweets':
+            self.go_to_report_page()
+        elif self.section == 'videos':
+            self.go_to_video_page()
+        else:
+            raise Exception('Unknown section')
 
         # Pick date range if needed
         if self.has_date_range:
@@ -174,6 +182,13 @@ class ReportDownloader(object):
         Goes to the analytics page where we can download the report.
         """
         self.browser.get('https://analytics.twitter.com/user/{}/tweets'.format(self.username))
+        random_time_sleep()
+
+    def go_to_video_page(self):
+        """
+        Goes to the page with video statistics
+        """
+        self.browser.get('https://analytics.twitter.com/user/{}/videos'.format(self.username))
         random_time_sleep()
 
     def download_report(self):

@@ -8,7 +8,7 @@ def read(fname):
 
 setup(
     name="twitter-analytics",
-    version="0.1",
+    version="1.0",
     author="Philippe Oger",
     author_email="phil.oger@gmail.com",
     description=("A twitter analytics reports downloader. The only way to get tweet impressions data with Python"),

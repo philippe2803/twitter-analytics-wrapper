@@ -76,8 +76,11 @@ If you encounter issues, submit it on this repo. I also accept pull requests.
     ```commandline
     $ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     
-    $ brew install chromedriver
+    $ brew tap homebrew/cask
+    $ brew cask install chromedriver
     ```
+    
+Please note that `chromedriver`  was migrated from `homebrew/core` to `homebrew/cask`.
 
 # If you are installing from this repository:
 

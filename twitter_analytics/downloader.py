@@ -1,7 +1,7 @@
 import os
 import platform
 SYST = platform.system().lower()
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, date
 from math import ceil
 from twitter_analytics.calendar import AnalyticsCalendar
 if SYST != 'windows':
@@ -10,6 +10,8 @@ from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.action_chains import ActionChains
 from twitter_analytics.utils import random_time_sleep
+from dateutil.rrule import rrule, MONTHLY
+import calendar
 
 
 class ReportDownloader(object):
@@ -103,7 +105,8 @@ class ReportDownloader(object):
 
         # Pick date range if needed
         if self.has_date_range:
-            ranges = self.split_date_range_into_91(from_date=self.from_date, to_date=self.to_date)
+#            ranges = self.split_date_range_into_91(from_date=self.from_date, to_date=self.to_date)
+            ranges = self.split_date_range_into_months(from_date=self.from_date, to_date=self.to_date)
             for rng in ranges:
                 date_range = AnalyticsCalendar(
                     from_date=rng[0],
@@ -241,6 +244,37 @@ class ReportDownloader(object):
             batches.append([start_date.strftime('%m/%d/%Y'), end_date.strftime('%m/%d/%Y')])
             start_date = end_date + timedelta(days=1)
         return batches
+
+    @staticmethod
+    def split_date_range_into_months(from_date, to_date):
+        """
+        Split the date range into month to batch the
+        scraping of the calendar for period longer than
+        28-31 days.
+        :return: List of list of 2 items [0] = from and [1] = to.
+        """
+        from_date = datetime.strptime(from_date, '%m/%d/%Y')
+        to_date = datetime.strptime(to_date, '%m/%d/%Y')
+        delta = to_date - from_date
+        batches = list()
+        dates = [dt for dt in rrule(MONTHLY, dtstart=from_date, until=to_date)]
+        num_dates = len(dates)
+        for i, mydate in enumerate(dates):
+            yr = mydate.year
+            mth = mydate.month
+            dd = calendar.monthrange(yr, mth)[1]
+            if i == 0:
+                first = from_date
+            else:
+                first = date(yr, mth, 1)
+            if i == num_dates-1:
+                last = to_date
+            else:
+                last = date(yr, mth, dd)
+
+            batches.append([first.strftime('%m/%d/%Y'), last.strftime('%m/%d/%Y')])
+        return batches
+
 
     def quit(self):
         random_time_sleep()

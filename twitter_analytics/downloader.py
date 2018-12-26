@@ -271,7 +271,6 @@ class ReportDownloader(object):
                 last = to_date
             else:
                 last = date(yr, mth, dd)
-
             batches.append([first.strftime('%m/%d/%Y'), last.strftime('%m/%d/%Y')])
         return batches
 

@@ -4,7 +4,7 @@ Twitter analytics downloader
 This script downloads the tweets report from the analytics section of a twitter account (including impressions). 
 You can specify dates for period longer than the last 28 days default period from the Twitter analytics interface.
 
-The twitter analytics platform has a limit of 91 days. For period longer than 91 days, it splits the downloading of reports in multiple downloads.
+The twitter analytics platform used to have a limit of 91 days. In the latest iteration Twitter allows for periods of a month worth of data to be doenloaded. For periods longer thatn 28-31 days the script splits the downloading of reports in multiple requests.
 
 This was created so we can get impressions data for every tweets as there is no API endpoints specifically for those metrics (as of today).
 
@@ -76,8 +76,12 @@ If you encounter issues, submit it on this repo. I also accept pull requests.
     ```commandline
     $ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     
-    $ brew install chromedriver
+    $ brew tap homebrew/cask
+    $ brew cask install chromedriver
     ```
+    
+
+Please note that `chromedriver`  was migrated from `homebrew/core` to `homebrew/cask`.
 
 # If you are installing from this repository:
 
